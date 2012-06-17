@@ -1,31 +1,25 @@
+set autoread
+set cursorline
+set expandtab
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set noswapfile
 set number
-set showmode
-set title
 set ruler
+set scrolloff=5
 set showcmd
 set showmatch
-set laststatus=2
-set cursorline
-
-set scrolloff=5
-
-set noswapfile
-set autoread
-
-syntax on
-set smartindent
-
-set expandtab
-set ts=4 sw=4 sts=0
-
-set ignorecase
+set showmode
 set smartcase
+set smartindent
+set tags=tags,~/tags/rails2,~/tags/android,./tags
+set title
+set ts=4 sw=4 sts=0
 set wrapscan
 
-set hlsearch
-set incsearch
-
-set tags=tags,~/tags/rails2,~/tags/android,./tags
+syntax on
 
 colorscheme desert
 
@@ -40,31 +34,31 @@ set rtp+=~/.vim/vundle.git/
 call vundle#rc()
   
 " 利用中のプラグインをBundle
+Bundle 'Lokaltog/vim-powerline' 
+Bundle 'Markdown-syntax'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimshell'
 Bundle 'Shougo/vimproc'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'thinca/vim-quickrun'
-Bundle 'thinca/vim-ref'
-Bundle 'kana/vim-fakeclip'
-Bundle 'taglist.vim'
-Bundle 'trinity.vim'
+Bundle 'Shougo/vimshell'
 Bundle 'Source-Explorer-srcexpl.vim'
-Bundle 'scala.vim'
-Bundle 'open-browser.vim'
-Bundle 'Markdown-syntax'
+Bundle 'ZenCoding.vim'
+Bundle 'changelog'
 "Bundle 'javaimports.vim'
 "Bundle 'javap.vim'
-Bundle 'Lokaltog/vim-powerline' 
+Bundle 'kana/vim-fakeclip'
 Bundle 'minibufexpl.vim'
-Bundle 'changelog'
-Bundle 'snipMate'
-Bundle 'ZenCoding.vim'
-Bundle 'vim-coffee-script'
+Bundle 'open-browser.vim'
 Bundle 'rails.vim'
+Bundle 'scala.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'snipMate'
+Bundle 'taglist.vim'
+Bundle 'thinca/vim-quickrun'
+Bundle 'thinca/vim-ref'
+Bundle 'tpope/vim-surround'
+Bundle 'trinity.vim'
+Bundle 'vim-coffee-script'
 
 """ Vundle 設定終了
 filetype plugin indent on
@@ -82,9 +76,9 @@ au BufNewFile,BufRead *.scala set filetype=scala
 " coffee script
 let g:quickrun_config = {}
 let g:quickrun_config['coffee'] = {'command': 'coffee', 'exec': ['%c -bp %s']}
-let g:quickrun_config['markdown'] = {'outputter': 'browser'}
 let g:quickrun_config['cs'] = {'command': 'dmcs', 'exec':['%c %o %s -out:%s:p:r.exe', 'mono %s:p:r.exe %a', 'rm -f %s:p:r.exe'], 'tempfile': '%{tempname()}.cs'}
-let g:quickrun_config['sql'] = {'command': 'sqlite3', 'exec': ['%c ~/db/temp.db < %s']}
+let g:quickrun_config['markdown'] = {'outputter': 'browser'}
+" let g:quickrun_config['sql'] = {'command': 'sqlite3', 'exec': ['%c ~/db/temp.db < %s']}
 
 let g:ref_alc_encoding = 'utf-8'
 let g:ref_alc_start_linenumber = 44
