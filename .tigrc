@@ -1,0 +1,4 @@
+bind generic g move-first-line
+bind generic G move-last-line
+
+bind branch C !git checkout %(branch)
