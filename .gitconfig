@@ -1,8 +1,10 @@
 [user]
-	email = asari.mtr@gmail.com
-	name = Asari Mitsuteru
+  email = asari.mtr@gmail.com
+  name = Asari Mitsuteru
 [alias]
-	oneline = log --oneline --decorate
-    master = checkout master
+  oneline = log --oneline --decorate
+  master = checkout master
 [color]
-	ui = auto
+  ui = auto
+[core]
+  editor = vi
