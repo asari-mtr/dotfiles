@@ -2,3 +2,4 @@ bind generic g move-first-line
 bind generic G move-last-line
 
 bind branch C !git checkout %(branch)
+bind branch A !git archive --format=zip %(branch) -o %(branch).zip
