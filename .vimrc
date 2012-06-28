@@ -18,6 +18,8 @@ set tags=tags,~/tags/rails2,~/tags/android,./tags
 set title
 set ts=4 sw=4 sts=0
 set wrapscan
+set nobackup
+set hidden
 
 syntax on
 
@@ -32,7 +34,9 @@ filetype off
 """ Vundle '''
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
-  
+ 
+Bundle 'gmarik/vundle'
+
 " 利用中のプラグインをBundle
 Bundle 'Lokaltog/vim-powerline' 
 Bundle 'Markdown-syntax'
@@ -43,6 +47,7 @@ Bundle 'Shougo/vimshell'
 Bundle 'Source-Explorer-srcexpl.vim'
 Bundle 'ZenCoding.vim'
 Bundle 'changelog'
+Bundle 'log.vim'
 "Bundle 'javaimports.vim'
 "Bundle 'javap.vim'
 Bundle 'kana/vim-fakeclip'
@@ -57,8 +62,21 @@ Bundle 'taglist.vim'
 Bundle 'thinca/vim-quickrun'
 Bundle 'thinca/vim-ref'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rails'
 Bundle 'trinity.vim'
 Bundle 'vim-coffee-script'
+
+Bundle 'maven2.vim'
+Bundle 'perl.vim'
+Bundle 'python.vim'
+Bundle 'php.vim'
+Bundle 'ruby.vim'
+Bundle 'csharp.vim'
+Bundle 'node.js'
+
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'motemen/hatena-vim'
 
 """ Vundle 設定終了
 filetype plugin indent on
@@ -105,3 +123,15 @@ augroup END
 " hi CursorLine gui=underline cterm=underline
 " highlight CursorLine ctermbg=red guibg=red
 
+autocmd BufWritePre * :%s/\s+$//ge
+autocmd BufWritePre * :%s/\t/  /ge
+
+" RSpec
+let g:quickrun_config['ruby.rspec'] = {'command' : 'rspec'}
+augroup MyRSpec
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *_rspec.rb set filetype=ruby.rspec
+augroup END
+autocmd BufWinEnter,BufNewFile *.coffee set filetype=coffee
+
+autocmd QuickfixCmdPost vimgrep cw
