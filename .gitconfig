@@ -4,6 +4,11 @@
 [alias]
   oneline = log --oneline --decorate
   master = checkout master
+  co = checkout
+  l = log --graph --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
+  zip = archive --format=zip
+[merge]
+  tool = vimdiff
 [color]
   ui = auto
 [core]
