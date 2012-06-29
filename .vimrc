@@ -86,7 +86,7 @@ source ~/dotfiles/.vimrc.statusline
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=ucs-bom,iso-2022-jp,euc-jp,utf-8
+"set fileencodings=ucs-bom,iso-2022-jp,euc-jp,utf-8
 "set fileencodings+=,ucs-2le,ucs-2,cp932,euc-jp
 
 au BufNewFile,BufRead *.scala set filetype=scala
