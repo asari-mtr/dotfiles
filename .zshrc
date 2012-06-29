@@ -11,6 +11,11 @@ case ${UID} in
     ;;
 esac
 
+# proxy
+if [ -f ~/.zshrc.proxy ]; then
+    source ~/.zshrc.proxy
+fi
+
 # MacPorts Installer addition on 2011-07-31_at_17:20:15: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH/Users/asari_mtr/.ssh/github_rsa.pub
 # Finished adapting your PATH environment variable for use with MacPorts.
@@ -106,7 +111,7 @@ compinit
 ## zsh editor
 #
 autoload zed
-
+setopt brace_ccl
 
 ## Prediction configuration
 #
