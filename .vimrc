@@ -1,4 +1,5 @@
 set autoread
+set autochdir
 set cursorline
 set expandtab
 set hlsearch
@@ -20,6 +21,7 @@ set ts=4 sw=4 sts=0
 set wrapscan
 set nobackup
 set hidden
+set novisualbell
 
 syntax on
 
