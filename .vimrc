@@ -53,6 +53,8 @@ Bundle 'log.vim'
 "Bundle 'javaimports.vim'
 "Bundle 'javap.vim'
 Bundle 'kana/vim-fakeclip'
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
 Bundle 'minibufexpl.vim'
 Bundle 'open-browser.vim'
 Bundle 'rails.vim'
@@ -102,6 +104,10 @@ let g:quickrun_config['markdown'] = {'outputter': 'browser'}
 
 let g:ref_alc_encoding = 'utf-8'
 let g:ref_alc_start_linenumber = 44
+
+" Gist
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
 
 " vim -b : edit binary using xxd-format!
 augroup Binary
