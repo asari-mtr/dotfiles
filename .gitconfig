@@ -13,3 +13,5 @@
   ui = auto
 [core]
   editor = vi
+[github]
+  user = asari-mtr
