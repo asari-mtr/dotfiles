@@ -16,16 +16,31 @@ if [ -f ~/.zshrc.proxy ]; then
     source ~/.zshrc.proxy
 fi
 
-# MacPorts Installer addition on 2011-07-31_at_17:20:15: adding an appropriate PATH variable for use with MacPorts.
-export PATH=$(brew --prefix coreutils)/libexec/gnubin:/opt/local/bin:/opt/local/sbin:$PATH/Users/asari_mtr/.ssh/github_rsa.pub
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 export PATH=~/bin:$PATH
 
-export ANDROID_HOME=/Applications/android-sdk-mac_x86
-export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
-export PATH=~/lib/play-2.0:$PATH
+# brew path
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/sbin
+# coreutils path
+export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 
+# port path
+export PATH=$PATH:/opt/local/bin
+export PATH=$PATH:/opt/local/sbin
+export PATH=$PATH:/bin
+export PATH=$PATH:/sbin
+export PATH=$PATH:/usr/bin
+export PATH=$PATH:/usr/sbin
+
+# Android path
+export ANDROID_HOME=/Applications/android-sdk-mac_x86
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+
+# play path
+export PATH=$PATH:~/lib/play-2.0
+
+# pathの重複を解決
 typeset -U path
 
 ## Default shell configuration
