@@ -16,33 +16,6 @@ if [ -f ~/.zshrc.proxy ]; then
     source ~/.zshrc.proxy
 fi
 
-export PATH=~/bin:$PATH
-
-# brew path
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/usr/local/sbin
-# coreutils path
-export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
-
-# port path
-export PATH=$PATH:/opt/local/bin
-export PATH=$PATH:/opt/local/sbin
-export PATH=$PATH:/bin
-export PATH=$PATH:/sbin
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/usr/sbin
-
-# Android path
-export ANDROID_HOME=/Applications/android-sdk-mac_x86
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/tools
-
-# play path
-export PATH=$PATH:~/lib/play-2.0
-
-# pathの重複を解決
-typeset -U path
-
 ## Default shell configuration
 #
 # set prompt
@@ -250,3 +223,17 @@ setopt transient_rprompt
 
 # Completion
 setopt list_packed
+
+case "${OSTYPE}" in
+# Mac(unix)
+darwin*)
+    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+    ;;
+# linux
+linux*)
+    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
+    ;;
+esac
+
+# pathの重複を解決
+typeset -U path
