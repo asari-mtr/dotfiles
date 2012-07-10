@@ -8,7 +8,7 @@
   l = log --graph --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
   zip = archive --format=zip
   tags = tag -l
-  branches = branch -a
+  branches = branch -a -v
   remotes = remote -v
 [merge]
   tool = vimdiff
