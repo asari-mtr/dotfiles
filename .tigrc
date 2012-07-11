@@ -38,7 +38,7 @@ bind main b view-branch
 bind main s view-status
 bind main S view-stage
 
-bind main r view-reflog
+#bind main r view-reflog
 #bind main r !!git reflog --color
 #bind main r !git reset %(commit)
 #bind main R !git reset --hard %(commit)
@@ -64,3 +64,6 @@ bind status o !tig %(file)
 
 bind branch C !git checkout %(branch)
 bind branch A !git archive --format=zip %(branch) -o %(branch).zip
+
+bind diff l scroll-right
+bind diff h scroll-left
