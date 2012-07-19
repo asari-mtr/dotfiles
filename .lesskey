@@ -1,2 +1,6 @@
+# to regenerate:
+#   lesskey -o .less .lesskey
+
+# command
 h   left-scroll
 l   right-scroll
