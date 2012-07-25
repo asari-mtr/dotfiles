@@ -98,6 +98,7 @@ au BufNewFile,BufRead *.scala set filetype=scala
 " coffee script
 let g:quickrun_config = {}
 let g:quickrun_config['coffee'] = {'command': 'coffee', 'exec': ['%c -bp %s']}
+let g:quickrun_config['less'] = {'command': 'lessc', 'exec': ['%c %s']}
 let g:quickrun_config['cs'] = {'command': 'dmcs', 'exec':['%c %o %s -out:%s:p:r.exe', 'mono %s:p:r.exe %a', 'rm -f %s:p:r.exe'], 'tempfile': '%{tempname()}.cs'}
 let g:quickrun_config['markdown'] = {'outputter': 'browser'}
 " let g:quickrun_config['sql'] = {'command': 'sqlite3', 'exec': ['%c ~/db/temp.db < %s']}
@@ -141,5 +142,6 @@ augroup MyRSpec
   autocmd BufWinEnter,BufNewFile *_rspec.rb set filetype=ruby.rspec
 augroup END
 autocmd BufWinEnter,BufNewFile *.coffee set filetype=coffee
+autocmd BufWinEnter,BufNewFile *.less set filetype=less
 
 autocmd QuickfixCmdPost vimgrep cw
