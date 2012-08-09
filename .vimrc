@@ -21,7 +21,8 @@ set ts=4 sw=4 sts=0
 set wrapscan
 set nobackup
 set hidden
-set novisualbell
+set visualbell
+set t_vb=
 
 syntax on
 
