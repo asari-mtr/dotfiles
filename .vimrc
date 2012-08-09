@@ -100,6 +100,7 @@ au BufNewFile,BufRead *.scala set filetype=scala
 
 " coffee script
 let g:quickrun_config = {}
+let g:quickrun_config._ = {'runner': 'vimproc'}
 let g:quickrun_config['coffee'] = {'command': 'coffee', 'exec': ['%c -bp %s']}
 let g:quickrun_config['less'] = {'command': 'lessc', 'exec': ['%c %s']}
 let g:quickrun_config['cs'] = {'command': 'dmcs', 'exec':['%c %o %s -out:%s:p:r.exe', 'mono %s:p:r.exe %a', 'rm -f %s:p:r.exe'], 'tempfile': '%{tempname()}.cs'}
