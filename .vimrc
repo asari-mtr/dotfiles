@@ -77,6 +77,7 @@ Bundle 'php.vim'
 Bundle 'ruby.vim'
 Bundle 'csharp.vim'
 Bundle 'node.js'
+Bundle 'less.vim'
 
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
