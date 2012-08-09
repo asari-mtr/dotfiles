@@ -83,6 +83,8 @@ Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'motemen/hatena-vim'
 
+Bundle 'hiroro/vimdoc_ja'
+
 """ Vundle 設定終了
 filetype plugin indent on
 
