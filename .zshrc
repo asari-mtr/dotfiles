@@ -221,6 +221,10 @@ bindkey -e
 setopt prompt_subst
 setopt transient_rprompt
 
+# beep
+setopt no_beep
+setopt no_list_beep
+
 # Completion
 setopt list_packed
 
