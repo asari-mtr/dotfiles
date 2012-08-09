@@ -7,6 +7,8 @@
   co = checkout
   st = status
   l = log --graph --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
+  la = log --all --graph --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
+  dc = diff --cached
   zip = archive --format=zip
   tags = tag -l
   branches = branch -a -v
