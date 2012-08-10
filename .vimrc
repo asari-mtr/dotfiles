@@ -70,6 +70,10 @@ Bundle 'tpope/vim-rails'
 Bundle 'trinity.vim'
 Bundle 'vim-coffee-script'
 
+Bundle 'groenewege/vim-less'
+Bundle 'skammer/vim-css-color'
+Bundle 'hail2u/vim-css3-syntax'
+
 Bundle 'maven2.vim'
 Bundle 'perl.vim'
 Bundle 'python.vim'
@@ -77,7 +81,6 @@ Bundle 'php.vim'
 Bundle 'ruby.vim'
 Bundle 'csharp.vim'
 Bundle 'node.js'
-Bundle 'less.vim'
 
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
