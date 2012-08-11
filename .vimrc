@@ -72,7 +72,7 @@ Bundle 'trinity.vim'
 Bundle 'vim-coffee-script'
 
 Bundle 'groenewege/vim-less'
-Bundle 'skammer/vim-css-color'
+"Bundle 'skammer/vim-css-color'
 Bundle 'hail2u/vim-css3-syntax'
 
 Bundle 'maven2.vim'
