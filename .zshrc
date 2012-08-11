@@ -89,7 +89,7 @@ setopt inc_append_history
 
 ## Completion configuration
 #
-fpath=(~/.zsh-completions ${fpath})
+fpath=(~/.zsh-completions/src ${fpath})
 autoload -U compinit
 compinit
 # zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
