@@ -67,3 +67,5 @@ bind branch A !git archive --format=zip %(branch) -o %(branch).zip
 
 bind diff l scroll-right
 bind diff h scroll-left
+bind diff ^f move-page-down
+bind diff ^b move-page-up
