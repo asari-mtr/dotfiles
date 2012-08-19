@@ -1,5 +1,8 @@
 export PATH=~/bin:$PATH
 
+export PATH=$PATH:/bin
+export PATH=$PATH:/sbin
+
 # brew path
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/sbin
@@ -9,8 +12,6 @@ export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 # port path
 export PATH=$PATH:/opt/local/bin
 export PATH=$PATH:/opt/local/sbin
-export PATH=$PATH:/bin
-export PATH=$PATH:/sbin
 export PATH=$PATH:/usr/bin
 export PATH=$PATH:/usr/sbin
 
