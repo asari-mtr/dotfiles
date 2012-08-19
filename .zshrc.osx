@@ -22,3 +22,6 @@ export PATH=$PATH:$ANDROID_HOME/tools
 
 # play path
 export PATH=$PATH:~/lib/play-2.0
+
+# fpath
+# fpath=(~/.npm-zsh-completion ${fpath})
