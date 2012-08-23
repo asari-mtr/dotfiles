@@ -149,6 +149,25 @@ alias -g XG='| xargs grep'
 
 alias tmux="tmux -2"
 
+alias -s c='vim'
+alias -s h='vim'
+alias -s coffee='vim'
+alias -s config='vim'
+alias -s cs='vim'
+alias -s html='vim'
+alias -s java='vim'
+alias -s js='vim'
+alias -s less='vim'
+alias -s rb='vim'
+alias -s sbt='vim'
+alias -s scala='vim'
+alias -s txt='vim'
+alias -s md='vim'
+alias -s xml='vim'
+alias -s zsh='zsh'
+alias -s zshrc='vim'
+alias -s vimrc='vim'
+
 ## terminal configuration
 #
 case "${TERM}" in
