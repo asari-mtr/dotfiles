@@ -144,6 +144,8 @@ alias -g W='| wc'
 alias -g S='| sed'
 alias -g A='| awk'
 alias -g W='| wc'
+alias -g X='| xargs'
+alias -g XG='| xargs grep'
 
 alias tmux="tmux -2"
 
