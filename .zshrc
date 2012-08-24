@@ -148,6 +148,7 @@ alias -g X='| xargs'
 alias -g XG='| xargs grep'
 
 alias tmux="tmux -2"
+alias gits="git status -s -b && git stash list"
 
 alias -s c='vim'
 alias -s h='vim'
