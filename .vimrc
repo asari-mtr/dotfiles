@@ -23,6 +23,7 @@ set nobackup
 set hidden
 set visualbell
 set t_vb=
+set mouse=a
 
 syntax on
 
