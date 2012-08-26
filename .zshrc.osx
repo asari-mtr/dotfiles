@@ -4,8 +4,8 @@ export PATH=$PATH:/bin
 export PATH=$PATH:/sbin
 
 # brew path
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/usr/local/sbin
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
 # coreutils path
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 
