@@ -16,6 +16,7 @@
   tags = tag -l
   branches = branch -a -v
   remotes = remote -v
+  first = !git tag first `git rev-list HEAD | tail -n 1`
 [merge]
   tool = vimdiff
 [color]
