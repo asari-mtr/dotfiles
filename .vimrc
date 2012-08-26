@@ -157,8 +157,8 @@ augroup END
 " hi CursorLine gui=underline cterm=underline
 " highlight CursorLine ctermbg=red guibg=red
 
-autocmd BufWritePre * :%s/\s+$//ge
-autocmd BufWritePre * :%s/\t/  /ge
+" autocmd BufWritePre * :%s/\s+$//ge
+" autocmd BufWritePre * :%s/\t/  /ge
 
 " RSpec
 let g:quickrun_config['ruby.rspec'] = {'command' : 'rspec'}
