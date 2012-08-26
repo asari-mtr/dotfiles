@@ -45,6 +45,8 @@ bind main S view-stage
 #bind main ^R !git revert %(commit)
 
 bind main C !git cherry-pick %(commit)
+bind main ^f move-page-down
+bind main ^b move-page-up
 #bind main c !ls
 #bind main O !fsfa
 
