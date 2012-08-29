@@ -77,7 +77,7 @@ bindkey "\e[Z" reverse-menu-complete
 
 bindkey -s "vv" "!vi\n"
 bindkey -s "gg" "gits\n"
-bindkey -s "ss" "source ~/.zshrc\n"
+bindkey -s "sz" "source ~/.zshrc\n"
 
 ## Command history configuration
 #
