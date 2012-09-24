@@ -12,6 +12,7 @@
   d = diff
   dc = diff --cached
   ap = add -p
+  ri = rebase -i
   f = fetch
   zip = archive --format=zip
   tags = tag -l
