@@ -5,6 +5,7 @@
   oneline = log --oneline --decorate
   master = checkout master
   co = checkout
+  cm = commit -m 
   s = status
   l = log --graph --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
   la = log --all --graph --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
