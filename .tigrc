@@ -26,8 +26,13 @@ bind status C none
 bind generic g move-first-line
 bind generic G move-last-line
 
-bind generic p !git pull
-bind generic P !git push origin %(branch) #TODO it's not work well. see Top
+#bind generic p !git pull
+#bind generic P !git push origin %(branch) #TODO it's not work well. see Top
+
+bind generic l scroll-right
+bind generic h scroll-left
+bind generic ^f move-page-down
+bind generic ^b move-page-up
 
 bind main d view-diff
 bind main l view-log
@@ -66,8 +71,3 @@ bind status o !tig %(file)
 
 bind branch C !git checkout %(branch)
 bind branch A !git archive --format=zip %(branch) -o %(branch).zip
-
-bind diff l scroll-right
-bind diff h scroll-left
-bind diff ^f move-page-down
-bind diff ^b move-page-up
