@@ -129,9 +129,9 @@ alias j="jobs -l"
 
 alias ls="ls --color"
 
-alias la="ls -a"
+alias la="ls -aF"
 alias lf="ls -F"
-alias ll="ls -l"
+alias ll="ls -al"
 
 alias du="du -h"
 alias df="df -h"
