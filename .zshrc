@@ -268,3 +268,6 @@ esac
 
 # pathの重複を解決
 typeset -U path
+
+# python
+export PYTHONSTARTUP=~/.pythonrc
