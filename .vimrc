@@ -1,5 +1,4 @@
 set autoread
-set autochdir
 set cursorline
 set expandtab
 set hlsearch
@@ -64,7 +63,7 @@ Bundle 'scala.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'snipMate'
-Bundle 'taglist.vim'
+Bundle 'majutsushi/tagbar'
 Bundle 'thinca/vim-quickrun'
 Bundle 'thinca/vim-ref'
 Bundle 'tpope/vim-surround'
@@ -170,3 +169,20 @@ autocmd BufWinEnter,BufNewFile *.coffee set filetype=coffee
 autocmd BufWinEnter,BufNewFile *.less set filetype=less
 
 autocmd QuickfixCmdPost vimgrep cw
+
+" tagbar
+let g:tagbar_type_scala = {
+    \ 'ctagstype' : 'Scala',
+    \ 'kinds'     : [
+        \ 'p:packages:1',
+        \ 'V:values',
+        \ 'v:variables',
+        \ 'T:types',
+        \ 't:traits',
+        \ 'o:objects',
+        \ 'a:aclasses',
+        \ 'c:classes',
+        \ 'r:cclasses',
+        \ 'm:methods'
+    \ ]
+\ }
