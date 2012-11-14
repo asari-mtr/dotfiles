@@ -168,6 +168,11 @@ augroup END
 autocmd BufWinEnter,BufNewFile *.coffee set filetype=coffee
 autocmd BufWinEnter,BufNewFile *.less set filetype=less
 
+augroup SetTagsFile
+  autocmd!
+  autocmd FileType scala set tags=~/github/Play20/tags,~/github/scala/tags
+augroup END
+
 autocmd QuickfixCmdPost vimgrep cw
 
 " tagbar
