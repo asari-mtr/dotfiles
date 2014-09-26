@@ -271,3 +271,16 @@ typeset -U path
 
 # python
 export PYTHONSTARTUP=~/.pythonrc
+
+# z
+. `brew --prefix`/etc/profile.d/z.sh
+function precmd () {
+  z --add "$(pwd -P)"
+}
+
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+export NODE_PATH=/usr/local/lib/node_modules
+
+# rbenv
+eval "$(rbenv init -)"
