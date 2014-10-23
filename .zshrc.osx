@@ -8,6 +8,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 # coreutils path
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+export MANPATH=$(brew --prefix coreutils)/libexec/gnuman:$MANPATH
 
 # port path
 export PATH=$PATH:/opt/local/bin
