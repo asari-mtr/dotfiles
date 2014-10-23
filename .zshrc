@@ -118,16 +118,17 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 alias where="command -v"
 alias j="jobs -l"
 
-# case "${OSTYPE}" in
-# freebsd*|darwin*)
-#     alias ls="ls -G -w"
-#     ;;
-# linux*)
-#     alias ls="ls --color"
-#     ;;
-# esac
-
-alias ls="ls --color"
+case "${OSTYPE}" in
+freebsd*)
+    alias ls="ls -G -w"
+    ;;
+darwin*)
+    alias ls="ls --color"
+    ;;
+linux*)
+    alias ls="ls --color"
+    ;;
+esac
 
 alias la="ls -aF"
 alias lf="ls -F"
