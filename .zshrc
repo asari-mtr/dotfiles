@@ -285,3 +285,6 @@ export NODE_PATH=/usr/local/lib/node_modules
 
 # rbenv
 eval "$(rbenv init -)"
+
+# history
+function history-all { history -E 1 }
