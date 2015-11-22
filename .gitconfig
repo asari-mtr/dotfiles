@@ -20,6 +20,8 @@
   remotes = remote -v
   first = !git tag first `git rev-list HEAD | tail -n 1`
   last = 'log -1'
+  fix = commit --fixup
+  squash = rebase -i --autosquashfix
 [merge]
   tool = vimdiff
 [color]
