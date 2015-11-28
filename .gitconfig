@@ -21,12 +21,21 @@
   first = !git tag first `git rev-list HEAD | tail -n 1`
   last = 'log -1'
   fix = commit --fixup
-  squash = rebase -i --autosquashfix
+  squash = rebase -i --autosquash
 [merge]
   tool = vimdiff
 [color]
   ui = auto
 [core]
   editor = vi
+	excludesfile = /Users/asari/.gitignore_global
 [github]
   user = asari-mtr
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
