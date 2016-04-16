@@ -94,6 +94,7 @@ setopt inc_append_history
 fpath=(${fpath} ~/.zsh-completions/src)
 autoload -U compinit
 compinit
+typeset -U fpath
 # zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 #    /usr/sbin /usr/bin /bin /bin /usr/X11R6/bin /usr/local/git/bin
 
