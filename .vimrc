@@ -41,7 +41,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " 利用中のプラグインをBundle
-Bundle 'Lokaltog/vim-powerline' 
+Bundle 'powerline/powerline' 
 Bundle 'Markdown-syntax'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
@@ -54,8 +54,8 @@ Bundle 'log.vim'
 "Bundle 'javaimports.vim'
 "Bundle 'javap.vim'
 Bundle 'kana/vim-fakeclip'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
+"Bundle 'mattn/gist-vim'
+"Bundle 'mattn/webapi-vim'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'open-browser.vim'
 Bundle 'rails.vim'
@@ -88,6 +88,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'motemen/hatena-vim'
 
 Bundle 'hiroro/vimdoc_ja'
+Bundle 'tpope/vim-obsession'
 
 """ Vundle 設定終了
 filetype plugin indent on
