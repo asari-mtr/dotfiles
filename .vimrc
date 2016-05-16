@@ -90,6 +90,8 @@ Bundle 'motemen/hatena-vim'
 Bundle 'hiroro/vimdoc_ja'
 Bundle 'tpope/vim-obsession'
 
+Bundle 'mileszs/ack.vim'
+
 """ Vundle 設定終了
 filetype plugin indent on
 
