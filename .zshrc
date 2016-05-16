@@ -289,3 +289,5 @@ eval "$(rbenv init -)"
 
 # history
 function history-all { history -E 1 }
+# man
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/share/man:/usr/local/share/man/ja:/usr/local/share/man:/opt/X11/share/man
