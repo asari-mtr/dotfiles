@@ -266,7 +266,7 @@ linux*)
 esac
 
 # npm completion
-. <(npm completion)
+# . <(npm completion)
 
 # pathの重複を解決
 typeset -U path
