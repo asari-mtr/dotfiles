@@ -35,5 +35,12 @@ setopt prompt_subst
 
 RPROMPT='[`rprompt-git-current-branch`%~]'
 
+# pyenv
+export PYENV_ROOT=/usr/local/opt/pyenv
+
+# brew pyenv
+typeset -U path
+PATH=${PATH/\/Users\/asari\/\.pyenv\/shims:/} 
+
 # wercker
 eval "$(docker-machine env dev)"
