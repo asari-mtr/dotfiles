@@ -226,6 +226,9 @@ esac
 # This loads RVM into a shell session.
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"  
 
+## custom zsh file
+[ -d ${HOME}/.zsh ] && source ${HOME}/.zsh/*.zsh
+
 
 # Changing Directories
 setopt auto_cd
