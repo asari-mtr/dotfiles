@@ -22,6 +22,7 @@
   last = 'log -1'
   fix = commit --fixup
   squash = rebase -i --autosquash
+  ic = !git init && git add . && git commit -m 'init' && git oneline
 [merge]
   tool = vimdiff
 [color]
