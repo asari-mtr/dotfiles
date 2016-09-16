@@ -79,6 +79,15 @@ bindkey -s "vv" "!vi\n"
 bindkey -s "gg" "gits\n"
 bindkey -s "sz" "source ~/.zshrc\n"
 
+# for rails
+bindkey -s "be" "bundle exec"
+bindkey -s "rgmo" "rails g model"
+bindkey -s "rgmi" "rails g migration"
+bindkey -s "rgs" "rails g scaffold"
+bindkey -s "rgc" "rails g controller"
+bindkey -s "rgi" "rails g integration_test"
+bindkey -s "rgj" "rails g jbuilder"
+
 ## Command history configuration
 #
 HISTFILE=${HOME}/.zsh_history
