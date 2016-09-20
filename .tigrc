@@ -31,15 +31,15 @@ bind generic G move-last-line
 
 bind generic l scroll-right
 bind generic h scroll-left
-bind generic ^f move-page-down
-bind generic ^b move-page-up
+bind generic <Ctrl-f> move-page-down
+bind generic <Ctrl-b> move-page-up
 
 bind main d view-diff
 bind main l view-log
 bind main h view-help
 #bind main p view-pager
 bind main t view-tree
-bind main b view-branch
+bind main b view-refs
 bind main s view-status
 bind main S view-stage
 
@@ -50,8 +50,8 @@ bind main S view-stage
 #bind main ^R !git revert %(commit)
 
 bind main C !git cherry-pick %(commit)
-bind main ^f move-page-down
-bind main ^b move-page-up
+bind main <Ctrl-f> move-page-down
+bind main <Ctrl-b> move-page-up
 #bind main c !ls
 #bind main O !fsfa
 
