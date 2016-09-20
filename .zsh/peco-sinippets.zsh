@@ -5,4 +5,4 @@ function peco-snippets() {
 }
 
 zle -N peco-snippets
-bindkey '^]' peco-snippets
+bindkey '^ ' peco-snippets

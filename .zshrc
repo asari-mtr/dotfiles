@@ -80,7 +80,7 @@ bindkey -s "gg" "gits\n"
 bindkey -s "sz" "source ~/.zshrc\n"
 
 # for rails
-bindkey -s "be" "bundle exec"
+bindkey -s "bex" "bundle exec"
 bindkey -s "rgmo" "rails g model"
 bindkey -s "rgmi" "rails g migration"
 bindkey -s "rgs" "rails g scaffold"
@@ -162,6 +162,7 @@ alias -g XG='| xargs grep'
 
 alias tmux="tmux -2"
 alias gits="git status -s -b && git stash list"
+alias gibol='gibo -l | sed "/=/d" | tr "\t", "\n" | sed "/^$/d" | sort | peco | xargs gibo'
 
 alias -s c='vim'
 alias -s h='vim'
