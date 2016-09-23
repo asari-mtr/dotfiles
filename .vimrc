@@ -24,8 +24,6 @@ set visualbell
 set t_vb=
 set mouse=a
 
-syntax on
-
 colorscheme desert
 
 filetype off
@@ -36,7 +34,7 @@ filetype off
  
 """ Vundle '''
 set rtp+=~/.vim/vundle.git/
-call vundle#rc()
+call vundle#begin()
  
 Bundle 'gmarik/vundle'
 
@@ -87,12 +85,17 @@ Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'motemen/hatena-vim'
 
-Bundle 'hiroro/vimdoc_ja'
+"Bundle 'hiroro/vimdoc_ja'
 Bundle 'tpope/vim-obsession'
 
 Bundle 'mileszs/ack.vim'
+Bundle 'mxw/vim-jsx'
+Bundle 'tpope/vim-fugitive'
+Bundle 'slim-template/vim-slim.git'
 
 """ Vundle 設定終了
+call vundle#end()
+syntax enable
 filetype plugin indent on
 
 source ~/dotfiles/.vimrc.statusline
