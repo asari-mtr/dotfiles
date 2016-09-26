@@ -127,6 +127,7 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 
 alias where="command -v"
 alias j="jobs -l"
+alias h="history 1"
 
 case "${OSTYPE}" in
 freebsd*)
@@ -163,6 +164,7 @@ alias -g XG='| xargs grep'
 alias tmux="tmux -2"
 alias gits="git status -s -b && git stash list"
 alias gibol='gibo -l | sed "/=/d" | tr "\t", "\n" | sed "/^$/d" | sort | peco | xargs gibo'
+alias vimt='vim -c NERDTree'
 
 alias -s c='vim'
 alias -s h='vim'
