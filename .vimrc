@@ -47,6 +47,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/vimshell'
 Plugin 'Shougo/neomru.vim'
+Plugin 'Shougo/neoyank.vim'
 Plugin 'Source-Explorer-srcexpl.vim'
 Plugin 'ZenCoding.vim'
 Plugin 'changelog'
@@ -203,7 +204,6 @@ let g:tagbar_type_scala = {
 " インサートモードで開始
 let g:unite_enable_start_insert = 1
 " ヒストリー/ヤンク機能を有効化
-let g:unite_source_history_yank_enable = 1
 " prefix key の設定
 nmap <Space> [unite]
 
@@ -212,6 +212,6 @@ nnoremap <silent> [unite]d :<C-u>Unite<Space>directory_mru<CR>
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
 nnoremap <silent> [unite]r :<C-u>Unite<Space>register<CR>
 nnoremap <silent> [unite]t :<C-u>Unite<Space>tab<CR>
-nnoremap <silent> [unite]h :<C-u>Unite<Space>histroy/yank<CR>
+nnoremap <silent> [unite]h :<C-u>Unite<Space>history/unite<CR>
 nnoremap <silent> [unite]o :<C-u>Unite<Space>outline<CR>
 nnoremap <silent> [unite]<CR> :<C-u>Unite<Space>file_rec:!<CR>
