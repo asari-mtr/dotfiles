@@ -1,3 +1,9 @@
+zshに変更
+
+```
+which zsh | sudo tee -a /etc/shells
+```
+
 vundle.git をインストール
 ```zsh
 mkdir ~/.vim
