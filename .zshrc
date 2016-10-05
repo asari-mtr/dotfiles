@@ -100,7 +100,7 @@ setopt inc_append_history
 
 ## Completion configuration
 #
-fpath=(${fpath} ~/.zsh-completions/src)
+fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -U compinit
 compinit
 typeset -U fpath
