@@ -69,6 +69,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'thinca/vim-quickrun'
 Plugin 'thinca/vim-ref'
 Plugin 'yuku-t/vim-ref-ri'
+Plugin 'tsukkee/unite-tag'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-rails'
 Plugin 'trinity.vim'
@@ -138,6 +139,7 @@ let g:quickrun_config['cs'] = {
 let g:quickrun_config['markdown'] = {'outputter': 'browser'}
 " let g:quickrun_config['sql'] = {'command': 'sqlite3', 'exec': ['%c ~/db/temp.db < %s']}
 
+let g:ref_open = 'vsplit'
 let g:ref_use_vimproc = 1
 
 let g:ref_refe_cmd = "/usr/local/var/rbenv/shims/refe"
@@ -219,4 +221,16 @@ nnoremap <silent> [unite]r :<C-u>Unite<Space>register<CR>
 nnoremap <silent> [unite]t :<C-u>Unite<Space>tab<CR>
 nnoremap <silent> [unite]h :<C-u>Unite<Space>history/unite<CR>
 nnoremap <silent> [unite]o :<C-u>Unite<Space>outline<CR>
-nnoremap <silent> [unite]<CR> :<C-u>Unite<Space>file_rec:!<CR>
+nnoremap <silent> [unite]<CR> :<C-u>Unite<Space>file_rec<CR>
+nnoremap <silent> rr :<C-U>Unite ref/refe<CR>
+nnoremap <silent> ri :<C-U>Unite ref/ri<CR>
+
+" unite tag用
+autocmd BufEnter *
+            \  if empty(&buftype)
+            \|   nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag <CR>
+            \| endif
+autocmd BufEnter *
+            \  if empty(&buftype)
+            \|   nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
+            \| endif
