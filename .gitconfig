@@ -23,6 +23,7 @@
   fix = commit --fixup
   squash = rebase -i --autosquash
   ic = !git init && git add . && git commit -m 'init' && git oneline
+  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [merge]
   tool = vimdiff
 [color]
