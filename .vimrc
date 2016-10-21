@@ -23,6 +23,7 @@ set hidden
 set visualbell
 set t_vb=
 set mouse=a
+set ttymouse=xterm2
 
 colorscheme desert
 
