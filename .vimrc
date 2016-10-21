@@ -68,6 +68,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'thinca/vim-quickrun'
 Plugin 'thinca/vim-ref'
+Plugin 'yuku-t/vim-ref-ri'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-rails'
 Plugin 'trinity.vim'
@@ -137,8 +138,10 @@ let g:quickrun_config['cs'] = {
 let g:quickrun_config['markdown'] = {'outputter': 'browser'}
 " let g:quickrun_config['sql'] = {'command': 'sqlite3', 'exec': ['%c ~/db/temp.db < %s']}
 
-let g:ref_alc_encoding = 'utf-8'
-let g:ref_alc_start_linenumber = 44
+let g:ref_use_vimproc = 1
+
+let g:ref_refe_cmd = "/usr/local/var/rbenv/shims/refe"
+let g:ref_ri_cmd = $PWD."/bin/bundle exec ri"
 
 " Gist
 let g:gist_detect_filetype = 1
