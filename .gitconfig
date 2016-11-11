@@ -13,6 +13,9 @@
   dc = diff --cached
   ap = add -p
   ri = rebase -i
+  rc = rebase --continue
+  ra = rebase --abort
+  wip = commit --allow-empty -m
   f = fetch
   zip = archive --format=zip
   tags = tag -l
