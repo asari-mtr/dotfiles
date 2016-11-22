@@ -1,82 +1,24 @@
 #TODO macro like feature can execute builtin-command sequentially
 #TODO select actions should be separated as independent builtin-commands
-#
-#diable bind
-bind generic m none
-bind generic d none
-bind generic l none
-bind generic t none
-bind generic f none
-bind generic h none
-bind generic p none
-bind generic c none
-bind generic S none
-bind generic H none
-bind generic B none
 
-bind generic e none
-#bind generic r none
-#bind generic R none
+set main-view = id date author commit-title:graph=yes,refs=yes
 
-bind main C none
-bind branch C none
-bind status C none
-
-#enable bind
 bind generic g move-first-line
 bind generic G move-last-line
-
-#bind generic p !git pull
-#bind generic P !git push origin %(branch) #TODO it's not work well. see Top
-
-bind generic l scroll-right
-bind generic h scroll-left
 bind generic <Ctrl-f> move-page-down
 bind generic <Ctrl-b> move-page-up
 
-bind main d view-diff
-bind main l view-log
-bind main h view-help
-#bind main p view-pager
-bind main t view-tree
-bind main b view-refs
-bind main s view-status
-bind main S view-stage
+bind main i !git rebase -i %(commit)
 
-#bind main r view-reflog
-#bind main r !!git reflog --color
-#bind main r !git reset %(commit)
-#bind main R !git reset --hard %(commit)
-#bind main ^R !git revert %(commit)
-
-bind main C !git cherry-pick %(commit)
-bind main <Ctrl-f> move-page-down
-bind main <Ctrl-b> move-page-up
-#bind main c !ls
-#bind main O !fsfa
-bind main R !git rebase -i %(commit)
-
-bind tree b view-blame
-bind tree B view-blob
-bind tree e edit
 bind tree o !tig %(file)
 
-bind branch c !git checkout %(branch) # && reflesh
-
-bind status c !git commit
-bind status a !git commit --amend
-bind status b view-blame
-bind status B view-blob
-bind status e edit
 bind status o !tig %(file)
 
-bind branch C !git checkout %(branch)
 bind branch A !git archive --format=zip %(branch) -o %(branch).zip
 
-bind diff R !git rebase -i %(commit)
+bind diff i !git rebase -i %(commit)
 
 # Colors
-
 color "---"			cyan	default
 color "diff --"			yellow	default
 color "--- "			yellow	default
@@ -165,3 +107,8 @@ color palette-11		default	default bold
 color palette-12		white	default bold
 color palette-13		red	default bold
 color graph-commit		cyan	default
+
+# set
+set line-graphics = utf-8
+set mouse = yes
+
