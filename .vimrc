@@ -32,17 +32,17 @@ filetype off
 " call pathogen#runtime_append_all_bundles()
 " call pathogen#helptags()
 " set helpfile=$VIMRUNTIME/doc/help.txt
- 
+
 """ Vundle '''
 set rtp+=~/.vim/vundle.git/
 call vundle#begin()
- 
+
 Plugin 'gmarik/vundle'
 
 " 利用中のプラグインをPlugin
-Plugin 'powerline/powerline' 
+Plugin 'powerline/powerline'
 Plugin 'Markdown-syntax'
-Plugin 'Shougo/neocomplcache'
+Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Shougo/unite.vim'
@@ -98,6 +98,13 @@ Plugin 'mileszs/ack.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-fugitive'
 Plugin 'slim-template/vim-slim.git'
+
+Plugin 'taglist.vim'
+
+Plugin 'bronson/vim-trailing-whitespace'
+
+Plugin 'alpaca-tc/alpaca_tags'
+Plugin 'tpope/vim-endwise'
 
 """ Vundle 設定終了
 call vundle#end()
@@ -234,3 +241,10 @@ autocmd BufEnter *
             \  if empty(&buftype)
             \|   nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
             \| endif
+
+" 行末の半角スペースを削除
+autocmd BufWritePre * :FixWhitespace
+
+" neocompleteを有効
+let g:neocomplete#enable_at_startup = 1
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets/'
