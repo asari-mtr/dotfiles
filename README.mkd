@@ -17,3 +17,7 @@ brew install zsh-cpmpletions
 compinit
 chmod go-w /usr/local/share
 ```
+
+Rictyのインストール
+
+- [プログラミング用フォント Ricty](http://www.rs.tus.ac.jp/yyusa/ricty.html)
