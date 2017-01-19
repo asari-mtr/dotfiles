@@ -106,6 +106,8 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'alpaca-tc/alpaca_tags'
 Plugin 'tpope/vim-endwise'
 
+Plugin 'Lokaltog/vim-easymotion'
+
 """ Vundle 設定終了
 call vundle#end()
 syntax enable
@@ -232,6 +234,9 @@ nnoremap <silent> [unite]<CR> :<C-u>Unite<Space>file_rec<CR>
 nnoremap <silent> rr :<C-U>Unite ref/refe<CR>
 nnoremap <silent> ri :<C-U>Unite ref/ri<CR>
 
+nmap s <Plug>(easymotion-w)
+nmap S <Plug>(easymotion-b)
+
 " unite tag用
 autocmd BufEnter *
             \  if empty(&buftype)
@@ -248,3 +253,4 @@ autocmd BufWritePre * :FixWhitespace
 " neocompleteを有効
 let g:neocomplete#enable_at_startup = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets/'
+
