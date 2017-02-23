@@ -3,6 +3,8 @@
   name = Asari Mitsuteru
 [alias]
   oneline = log --oneline --decorate
+  onelinenm = log --oneline --no-merges
+  onelinep = log --decorate --first-parent --pretty=format:'%C(yellow)%h %C(cyan bold)%ad%Creset%Cgreen%d%Creset %s %C(cyan bold)%an%Creset' --date=format:'%Y/%m/%d %H:%M:%S'
   master = checkout master
   co = checkout
   cm = commit -m 
