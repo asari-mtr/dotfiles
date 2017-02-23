@@ -249,7 +249,7 @@ autocmd BufEnter *
             \| endif
 
 " 行末の半角スペースを削除
-autocmd BufWritePre * :FixWhitespace
+autocmd BufWritePre *.rb :FixWhitespace
 
 " neocompleteを有効
 let g:neocomplete#enable_at_startup = 1
