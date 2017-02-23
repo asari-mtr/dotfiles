@@ -107,6 +107,7 @@ Plugin 'alpaca-tc/alpaca_tags'
 Plugin 'tpope/vim-endwise'
 
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'terryma/vim-multiple-cursors'
 
 """ Vundle 設定終了
 call vundle#end()
@@ -254,3 +255,18 @@ autocmd BufWritePre * :FixWhitespace
 let g:neocomplete#enable_at_startup = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets/'
 
+" prevent conflict between neocomplete and vim-multiple-cursors
+"
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
