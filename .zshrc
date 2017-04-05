@@ -135,7 +135,8 @@ freebsd*)
     alias ls="ls -G -w"
     ;;
 darwin*)
-    alias ls="ls --color"
+    export LSCOLORS=gxfxcxdxbxegedabagacad
+    alias ls="ls -G -w"
     ;;
 linux*)
     alias ls="ls --color"
