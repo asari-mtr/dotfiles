@@ -24,6 +24,7 @@ set visualbell
 set t_vb=
 set mouse=a
 set ttymouse=xterm2
+set clipboard+=unnamed
 
 colorscheme desert
 
