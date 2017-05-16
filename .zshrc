@@ -16,6 +16,18 @@ if [ -f ~/.zshrc.proxy ]; then
     source ~/.zshrc.proxy
 fi
 
+# ssh-agent
+function keyadd {
+    eval $(ssh-agent)
+    ssh-add -l > /dev/null
+    if [ 1 -eq $? ]
+    then
+        echo "ssh key add"
+        ssh-add ~/.ssh/id_rsa
+    fi
+}
+export keyadd
+
 ## Default shell configuration
 #
 # set prompt
