@@ -7,6 +7,8 @@ bind generic g move-first-line
 bind generic G move-last-line
 bind generic <Ctrl-f> move-page-down
 bind generic <Ctrl-b> move-page-up
+bind generic L !sh -c "git reflog --pretty=raw | tig --pretty=raw"
+bind generic _ ?git reset --hard HEAD@{"%(prompt Enter HEAD@{} number: )"}
 
 bind main i !git rebase -i %(commit)
 
