@@ -101,6 +101,11 @@ Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-fugitive'
 Plugin 'slim-template/vim-slim.git'
 
+Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_realtime        = 1
+let g:gitgutter_eager           = 1
+
 Plugin 'taglist.vim'
 
 Plugin 'bronson/vim-trailing-whitespace'
