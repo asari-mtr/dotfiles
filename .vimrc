@@ -240,6 +240,9 @@ nnoremap <silent> ri :<C-U>Unite ref/ri<CR>
 nmap s <Plug>(easymotion-w)
 nmap S <Plug>(easymotion-b)
 
+noremap j gj
+noremap k gk
+
 " unite tag用
 autocmd BufEnter *
             \  if empty(&buftype)
