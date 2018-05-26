@@ -21,3 +21,21 @@ chmod go-w /usr/local/share
 Rictyのインストール
 
 - [プログラミング用フォント Ricty](http://www.rs.tus.ac.jp/yyusa/ricty.html)
+
+sshの設定
+``` zsh
+$ vim ~/.ssh/config
+```
+
+以下を追加
+```
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+```
+
+以下を実行
+``` zsh
+$ eval "$(ssh-agent -s)"
+```
