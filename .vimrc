@@ -81,9 +81,11 @@ Plugin 'groenewege/vim-less'
 Plugin 'hail2u/vim-css3-syntax'
 
 Plugin 'maven2.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'python.vim'
 Plugin 'ruby.vim'
 Plugin 'node.js'
+Plugin 'digitaltoad/vim-pug'
 
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
