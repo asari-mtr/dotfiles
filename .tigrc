@@ -1,7 +1,8 @@
 #TODO macro like feature can execute builtin-command sequentially
 #TODO select actions should be separated as independent builtin-commands
 
-set main-view = id date author commit-title:graph=yes,refs=yes
+#set main-view = id date author commit-title:graph=yes,refs=yes
+set main-view = id:width=6 date:relative-compact author:abbreviated commit-title:graph=yes,refs=yes
 
 bind generic g move-first-line
 bind generic G move-last-line
