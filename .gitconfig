@@ -7,7 +7,9 @@
   onelinep = log --decorate --first-parent --pretty=format:'%C(yellow)%h %C(cyan bold)%ad%Creset%Cgreen%d%Creset %s %C(cyan bold)%an%Creset' --date=format:'%Y/%m/%d %H:%M:%S'
   master = checkout master
   co = checkout
-  cm = commit -m 
+  cb = checkout -b
+  pushr = push origin HEAD --set-upstream
+  cm = commit -m
   s = status
   l = log --graph --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
   la = log --all --graph --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
