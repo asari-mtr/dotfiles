@@ -43,4 +43,6 @@ typeset -U path
 PATH=${PATH/\/Users\/asari\/\.pyenv\/shims:/} 
 
 # wercker
-eval "$(docker-machine env dev)"
+if type "docker-machine" > /dev/null 2>&1 ; then
+  eval "$(docker-machine env dev)"
+fi

@@ -308,7 +308,9 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export NODE_PATH=/usr/local/lib/node_modules
 
 # rbenv
-eval "$(rbenv init -)"
+if type "rbenv" > /dev/null 2>&1 ; then
+  eval "$(rbenv init -)"
+fi
 
 # history
 function history-all { history -E 1 }
