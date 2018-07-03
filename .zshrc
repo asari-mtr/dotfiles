@@ -240,6 +240,7 @@ esac
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
+[ -f ${HOME}/.zshrc.secret ] && source ${HOME}/.zshrc.secret
 
 # This loads RVM into a shell session.
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"  
