@@ -47,6 +47,7 @@ Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/unite-outline'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/vimshell'
 Plugin 'Shougo/neomru.vim'
@@ -228,14 +229,19 @@ let g:unite_enable_start_insert = 1
 " prefix key の設定
 nmap <Space> [unite]
 
-nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer file_mru<CR>
-nnoremap <silent> [unite]d :<C-u>Unite<Space>directory_mru<CR>
-nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]r :<C-u>Unite<Space>register<CR>
-nnoremap <silent> [unite]t :<C-u>Unite<Space>tab<CR>
-nnoremap <silent> [unite]h :<C-u>Unite<Space>history/unite<CR>
-nnoremap <silent> [unite]o :<C-u>Unite<Space>outline<CR>
-nnoremap <silent> [unite]<CR> :<C-u>Unite<Space>file_rec<CR>
+nnoremap <silent> [unite]f :<C-u>Unite -direction=belowright<Space>buffer file_mru<CR>
+nnoremap <silent> [unite]d :<C-u>Unite -direction=belowright<Space>directory<CR>
+nnoremap <silent> [unite]b :<C-u>Unite -direction=belowright<Space>buffer<CR>
+nnoremap <silent> [unite]r :<C-u>Unite -direction=belowright<Space>register<CR>
+nnoremap <silent> [unite]t :<C-u>Unite -direction=belowright<Space>tag<CR>
+nnoremap <silent> [unite]h :<C-u>Unite -direction=belowright<Space>history/unite<CR>
+nnoremap <silent> [unite]y :<C-u>Unite -direction=belowright<Space>history/yank<CR>
+nnoremap <silent> [unite]o :<C-u>Unite -direction=belowright -winheight=10<Space>outline<CR>
+nnoremap <silent> [unite]<CR> :<C-u>Unite -direction=belowright<Space>file_mru file_rec/git:--cached:--others:--exclude-standard<CR>
+"nnoremap <silent> [unite]<CR> :<C-u>Unite -direction=belowright<Space>file_rec<CR>
+nnoremap <silent> [unite]g :<C-u>Unite -direction=belowright grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]n :<C-u>Unite -direction=belowright grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>
+nnoremap <silent> [unite]gr :<C-u>UniteResume -direction=belowright search-buffer<CR>
 nnoremap <silent> rr :<C-U>Unite ref/refe<CR>
 nnoremap <silent> ri :<C-U>Unite ref/ri<CR>
 
