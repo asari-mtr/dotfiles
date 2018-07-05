@@ -169,7 +169,9 @@ alias -g XG='| xargs grep'
 
 alias tmux="tmux -2"
 alias gits="git status -s -b && git stash list"
+alias chbranch="git branch | grep -v '\*.*' | peco | awk '{print $1}' | xargs git checkout"
 alias gibol='gibo -l | sed "/=/d" | tr "\t", "\n" | sed "/^$/d" | sort | peco | xargs gibo'
+alias gack="git ls-files -oc --exclude-standard | ack -x . | peco"
 alias vimt='vim -c NERDTree'
 
 alias -s c='vim'
