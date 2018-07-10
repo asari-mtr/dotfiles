@@ -168,7 +168,7 @@ alias -g X='| xargs'
 alias -g XG='| xargs grep'
 
 alias tmux="tmux -2"
-alias gits="git status -s -b && git stash list"
+alias gits="git status -s -b && git stash list && git diff master... --stat && this_branch_on_master"
 alias chbranch="git branch | grep -v '\*.*' | peco | awk '{print $1}' | xargs git checkout"
 alias gibol='gibo -l | sed "/=/d" | tr "\t", "\n" | sed "/^$/d" | sort | peco | xargs gibo'
 alias gack="git ls-files -oc --exclude-standard | ack -x . | peco"
@@ -306,6 +306,13 @@ export NODE_PATH=/usr/local/lib/node_modules
 if type "rbenv" > /dev/null 2>&1 ; then
   eval "$(rbenv init -)"
 fi
+
+# git
+function this_branch_on_master {
+  if [[ `git log ..origin/master --oneline | wc -l`  -ne 0 ]]; then
+    echo "${fg[yellow]}Recomended to rebase${reset_color}"
+  fi
+}
 
 # history
 function history-all { history -E 1 }
