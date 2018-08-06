@@ -106,6 +106,8 @@ let g:gitgutter_eager           = 1
 
 Plugin 'taglist.vim'
 
+Plugin 'luochen1990/rainbow'
+
 Plugin 'bronson/vim-trailing-whitespace'
 
 Plugin 'alpaca-tc/alpaca_tags'
@@ -276,6 +278,12 @@ function! Multiple_cursors_before()
     exe 'NeoCompleteLock'
   endif
 endfunction
+
+" rainbow
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+	\	'ctermfgs': ['blue', 'yellow', 'red', 'green', 'magenta', 'cyan']
+\}
 
 " Called once only when the multiple selection is canceled (default <Esc>)
 function! Multiple_cursors_after()
