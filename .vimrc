@@ -86,6 +86,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'python.vim'
 Plugin 'ruby.vim'
 Plugin 'node.js'
+Plugin 'rust-lang/rust.vim'
 Plugin 'digitaltoad/vim-pug'
 
 Plugin 'mattn/gist-vim'
@@ -284,6 +285,9 @@ let g:rainbow_active = 1
 let g:rainbow_conf = {
 	\	'ctermfgs': ['blue', 'yellow', 'red', 'green', 'magenta', 'cyan']
 \}
+
+" rust
+let g:rustfmt_autosave = 1
 
 " Called once only when the multiple selection is canceled (default <Esc>)
 function! Multiple_cursors_after()
