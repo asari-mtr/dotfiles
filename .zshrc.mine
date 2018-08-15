@@ -26,19 +26,11 @@ function rprompt-git-current-branch {
                 color=%B%F{red}
         else
                  color=%F{red}
-         fi
-              
+        fi
+
         echo "$color$name$action%f%b "
 }
 
 setopt prompt_subst
 
 RPROMPT='[`rprompt-git-current-branch`%~]'
-
-# pyenv
-export PYENV_ROOT=/usr/local/opt/pyenv
-
-# brew pyenv
-typeset -U path
-PATH=${PATH/\/Users\/asari\/\.pyenv\/shims:/} 
-
