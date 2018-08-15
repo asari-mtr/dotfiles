@@ -308,6 +308,14 @@ if type "rbenv" > /dev/null 2>&1 ; then
   eval "$(rbenv init -)"
 fi
 
+# python
+export PYENV_ROOT="$HOME/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 # git
 function this_branch_on_master {
   if [[ `git log ..origin/master --oneline | wc -l`  -ne 0 ]]; then
