@@ -5,3 +5,8 @@ export _JAVA_OPTIONS="-Dfile.encoding=UTF-8"
 
 # alias
 alias e="subl"
+
+# brewfile wrap
+# if [ -f $(brew --prefix)/etc/brew-wrap ];then
+#   source $(brew --prefix)/etc/brew-wrap
+# fi
