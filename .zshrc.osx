@@ -1,14 +1,3 @@
-export PATH=~/bin:$PATH
-
-export PATH=$PATH:/bin
-export PATH=$PATH:/sbin
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/usr/sbin
-
-# brew path
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
-
 # fpath
 # fpath=(~/.npm-zsh-completion ${fpath})
 
