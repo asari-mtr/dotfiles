@@ -12,6 +12,7 @@ bind generic L !sh -c "git reflog --pretty=raw | tig --pretty=raw"
 bind generic _ ?git reset --hard HEAD@{"%(prompt Enter HEAD@{} number: )"}
 
 bind main i !git rebase -i %(commit)
+bind main c !git checkout %(branch)
 
 bind tree o !tig %(file)
 
