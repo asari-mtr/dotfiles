@@ -292,10 +292,7 @@ esac
 # . <(npm completion)
 
 # pathの重複を解決
-typeset -U path
-
-# python
-export PYTHONSTARTUP=~/.pythonrc
+#typeset -U path
 
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
