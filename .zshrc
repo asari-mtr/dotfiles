@@ -298,6 +298,11 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 export NODE_PATH=/usr/local/lib/node_modules
 
+# dasht
+export PATH=~/workspace/dasht/bin:$PATH
+export MANPATH=~/workspace/dasht/man:$MANPATH
+source ~/workspace/dasht/etc/zsh/completions.zsh
+
 # rbenv
 if type "rbenv" > /dev/null 2>&1 ; then
   eval "$(rbenv init -)"
