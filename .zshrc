@@ -293,9 +293,6 @@ esac
 # npm completion
 # . <(npm completion)
 
-# pathの重複を解決
-#typeset -U path
-
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 export NODE_PATH=/usr/local/lib/node_modules
@@ -332,3 +329,7 @@ export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/share/man:/usr/local
 
 # gem
 export EDITOR=vim
+
+# pathの重複を解決
+typeset -U path
+
