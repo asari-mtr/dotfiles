@@ -163,19 +163,6 @@ alias where="command -v"
 alias j="jobs -l"
 alias h="history 1"
 
-case "${OSTYPE}" in
-freebsd*)
-    alias ls="ls -G -w"
-    ;;
-darwin*)
-    export LSCOLORS=gxfxcxdxbxegedabagacad
-    alias ls="ls -G -w"
-    ;;
-linux*)
-    alias ls="ls --color"
-    ;;
-esac
-
 alias la="ls -aF"
 alias lf="ls -F"
 alias ll="ls -al"
@@ -231,8 +218,8 @@ screen)
 esac
 
 case "${TERM}" in
-xterm|xterm-color)
-    export LSCOLORS=exfxcxdxbxegedabagacad
+xterm|xterm-color|xterm-256color)
+    export LSCOLORS=gxfxcxdxbxegedabagacad
     export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
     zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
     ;;
@@ -302,17 +289,6 @@ setopt list_packed
 #
 [ -f ${HOME}/dotfiles/.zshrc.local ] && source ${HOME}/dotfiles/.zshrc.local
 
-case "${OSTYPE}" in
-# Mac(unix)
-darwin*)
-    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
-    ;;
-# linux
-linux*)
-    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
-    ;;
-esac
-
 # git
 function this_branch_on_master {
   if [[ `git log ..origin/master --oneline | wc -l`  -ne 0 ]]; then
@@ -325,3 +301,18 @@ function history-all { history -E 1 }
 
 # gem
 export EDITOR=vim
+
+case "${OSTYPE}" in
+# Mac(unix)
+darwin*)
+    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+    ;;
+# linux
+linux*)
+    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
+    ;;
+# Freebsd
+freebsd*)
+    [ -f ~/dotfiles/.zshrc.bsd ] && source ~/dotfiles/.zshrc.bsd
+    ;;
+esac

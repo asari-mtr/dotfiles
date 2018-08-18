@@ -1,4 +1,1 @@
-export ANDROID_HOME=~/lib/android-sdk-linux
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:~/bin
-
-export export _JAVA_OPTIONS="-Xms128m -Xmx256m"
+alias ls="ls --color"

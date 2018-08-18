@@ -1,10 +1,9 @@
 # fpath
 # fpath=(~/.npm-zsh-completion ${fpath})
 
-export _JAVA_OPTIONS="-Dfile.encoding=UTF-8"
-
 # alias
 alias e="subl"
+alias ls="ls -G -w"
 
 # brewfile wrap
 # if [ -f $(brew --prefix)/etc/brew-wrap ];then

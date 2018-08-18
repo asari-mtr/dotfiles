@@ -19,4 +19,5 @@ if [[ -z $ZSHENV_LOAD ]] {
 
   # java
   export JAVA_HOME=`/usr/libexec/java_home`
+  export _JAVA_OPTIONS="-Xms128m -Xmx256m -Dfile.encoding=UTF-8"
 }
