@@ -4,17 +4,11 @@
 #
 # LANG
 #
-export LANG=ja_JP.UTF-8
 case ${UID} in
 0)
     LANG=C
     ;;
 esac
-
-# proxy
-if [ -f ~/.zshrc.proxy ]; then
-    source ~/.zshrc.proxy
-fi
 
 # ssh-agent
 function keyadd {
@@ -49,6 +43,41 @@ case ${UID} in
         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
     ;;
 esac
+
+#
+# Show branch name in Zsh's right prompt
+#
+
+autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+
+function rprompt-git-current-branch {
+  local name st color gitdir action
+  if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
+    return
+  fi
+  name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
+  if [[ -z $name ]]; then
+    return
+  fi
+
+  gitdir=`git rev-parse --git-dir 2> /dev/null`
+  action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+
+  st=`git status 2> /dev/null`
+  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+    color=%F{green}
+  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+    color=%F{yellow}
+  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+    color=%B%F{red}
+  else
+    color=%F{red}
+  fi
+
+  echo "$color$name$action%f%b "
+}
+setopt prompt_subst
+RPROMPT='[`rprompt-git-current-branch`%~]'
 
 # command correct edition before each completion attempt
 #
@@ -239,18 +268,8 @@ xterm|xterm-color|kterm|kterm-color)
     ;;
 esac
 
-## load user .zshrc configuration file
-#
-[ -f ${HOME}/dotfiles/.zshrc.local ] && source ${HOME}/dotfiles/.zshrc.local
-[ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
-[ -f ${HOME}/dotfiles/.zshrc.secret ] && source ${HOME}/dotfiles/.zshrc.secret
-
-# This loads RVM into a shell session.
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"  
-
 ## custom zsh file
 [ -d ${HOME}/.zsh ] && source ${HOME}/.zsh/*.zsh
-
 
 # Changing Directories
 setopt auto_cd
@@ -279,6 +298,10 @@ setopt no_list_beep
 # Completion
 setopt list_packed
 
+## load user .zshrc configuration file
+#
+[ -f ${HOME}/dotfiles/.zshrc.local ] && source ${HOME}/dotfiles/.zshrc.local
+
 case "${OSTYPE}" in
 # Mac(unix)
 darwin*)
@@ -290,28 +313,6 @@ linux*)
     ;;
 esac
 
-# npm completion
-# . <(npm completion)
-
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
-
-export NODE_PATH=/usr/local/lib/node_modules
-
-# dasht
-export PATH=~/workspace/dasht/bin:$PATH
-export MANPATH=~/workspace/dasht/man:$MANPATH
-source ~/workspace/dasht/etc/zsh/completions.zsh
-
-# rbenv
-if type "rbenv" > /dev/null 2>&1 ; then
-  eval "$(rbenv init -)"
-fi
-
-# python
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 # git
 function this_branch_on_master {
   if [[ `git log ..origin/master --oneline | wc -l`  -ne 0 ]]; then
@@ -321,12 +322,6 @@ function this_branch_on_master {
 
 # history
 function history-all { history -E 1 }
-# man
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/share/man:/usr/local/share/man/ja:/usr/local/share/man:/opt/X11/share/man
 
 # gem
 export EDITOR=vim
-
-# pathの重複を解決
-typeset -U path
-
