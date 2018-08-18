@@ -1,9 +1,9 @@
 echo "load ~/.zshenv"
 
 # proxy
-if [ -f ~/.zshrc.proxy ]; then
-    source ~/.zshrc.proxy
-fi
+if [[ -e ~/.zshrc.proxy ]] {
+  source ~/.zshrc.proxy
+}
 
 if [[ -z $ZSHENV_LOAD ]] {
   export ZSHENV_LOAD="1"
@@ -20,4 +20,9 @@ if [[ -z $ZSHENV_LOAD ]] {
   # java
   export JAVA_HOME=`/usr/libexec/java_home`
   export _JAVA_OPTIONS="-Xms128m -Xmx256m -Dfile.encoding=UTF-8"
+
+  # proxy
+  if [[ -e ~/dotfiles/.zshenv.local ]] {
+    source ~/dotfiles/.zshenv.local
+  }
 }
