@@ -1,5 +1,3 @@
-echo "load ~/.zprofile"
-
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # anyenv

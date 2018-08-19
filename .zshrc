@@ -77,6 +77,8 @@ function rprompt-git-current-branch {
   echo "$color$name$action%f%b "
 }
 setopt prompt_subst
+setopt transient_rprompt
+
 RPROMPT='[`rprompt-git-current-branch`%~]'
 
 # command correct edition before each completion attempt
@@ -268,10 +270,6 @@ esac
 setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
-
-# Prompting
-setopt prompt_subst
-setopt transient_rprompt
 
 # beep
 setopt no_beep

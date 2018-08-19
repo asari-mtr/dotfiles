@@ -1,5 +1,3 @@
-echo "load ~/.zshenv"
-
 # proxy
 if [[ -e ~/.zshrc.proxy ]] {
   source ~/.zshrc.proxy
