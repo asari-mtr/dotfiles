@@ -51,7 +51,7 @@ esac
 autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
 function rprompt-battery {
-  if [[ ! ${UID} -ne 0 ]] {
+  if [[ ! -n "${REMOTEHOST}${SSH_CONNECTION}" ]] {
     return
   }
 
