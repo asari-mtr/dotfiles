@@ -50,6 +50,35 @@ esac
 
 autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
+function rprompt-battery {
+  if [[ ! ${UID} -ne 0 ]] {
+    return
+  }
+
+  if [[ ! ${OSTYPE} =~ "darwin.*" ]] {
+    return
+  }
+
+  local battery is_charging
+  pmset -g ps | grep -E 'charging' >/dev/null 2>&1
+  if [[ $? -eq 0 ]] {
+    is_charging=1
+  } else {
+    is_charging=0
+  }
+
+  battery=`pmset -g ps | grep -o '[0-9]\+%' | tr -d '%'`%%
+  if [[ -n "$battery" ]] {
+    if [[ ${is_charging} -eq 1 ]] {
+      echo "%F{yellow}$battery%f%b"
+    } elif [[ "${battery%%%*}" -ge 30 ]] {
+      echo "%F{green}$battery%f%b"
+    } else {
+      echo "%F{red}$battery%f%b"
+    }
+  }
+}
+
 function rprompt-git-current-branch {
   local name st color gitdir action
   if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
@@ -79,7 +108,7 @@ function rprompt-git-current-branch {
 setopt prompt_subst
 setopt transient_rprompt
 
-RPROMPT='[`rprompt-git-current-branch`%~]'
+RPROMPT='`rprompt-battery` [`rprompt-git-current-branch`%~]'
 
 # command correct edition before each completion attempt
 #
