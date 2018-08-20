@@ -196,7 +196,8 @@ setopt brace_ccl
 #
 setopt complete_aliases     # aliased ls needs if file/dir completions work
 
-alias where="command -v"
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+
 alias j="jobs -l"
 alias h="history 1"
 
