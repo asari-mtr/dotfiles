@@ -60,7 +60,7 @@ function rprompt-battery {
   }
 
   local battery is_charging
-  pmset -g ps | grep -E 'charging' >/dev/null 2>&1
+  pmset -g ps | grep -w 'charging' >/dev/null 2>&1
   if [[ $? -eq 0 ]] {
     is_charging=1
   } else {
