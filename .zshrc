@@ -123,6 +123,17 @@ setopt noautoremoveslash
 #
 setopt nolistbeep
 
+# show git status or ls
+function _show_git_status_or_ls {
+  echo
+  if [[ -e ".git" ]] {
+    git status -s -b && git stash list && git diff master... --stat && this_branch_on_master
+  } else {
+    ls -a
+  }
+  zle reset-prompt
+}
+zle -N show_git_status_or_ls _show_git_status_or_ls
 
 ## Keybind configuration
 #
@@ -150,8 +161,9 @@ bindkey "\e[Z" reverse-menu-complete
 
 bindkey -s "]vv" "!vi\n"
 bindkey -s "]bb" "bundle install\n"
-bindkey -s " gg" "gits\n"
 bindkey -s "]sz" "source ~/.zshrc\n"
+
+bindkey " gg" "show_git_status_or_ls"
 
 ## Command history configuration
 #
@@ -222,7 +234,6 @@ alias -g X='| xargs'
 alias -g XG='| xargs grep'
 
 alias tmux="tmux -2"
-alias gits="git status -s -b && git stash list && git diff master... --stat && this_branch_on_master"
 alias chbranch="git branch | grep -v '\*.*' | peco | awk '{print $1}' | xargs git checkout"
 alias gibol='gibo -l | sed "/=/d" | tr "\t", "\n" | sed "/^$/d" | sort | peco | xargs gibo'
 alias gack="git ls-files -oc --exclude-standard | ack -x . | peco"
