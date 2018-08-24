@@ -115,4 +115,6 @@ color graph-commit		cyan	default
 # set
 set line-graphics = utf-8
 set mouse = yes
+set status-show-untracked-files = yes
+set status-show-untracked-dirs = yes
 
