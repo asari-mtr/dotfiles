@@ -11,6 +11,16 @@ cd .vim
 git clone https://github.com/gmarik/vundle.git vundle.git
 ```
 
+```sh
+./setup.sh
+```
+
+Macの場合
+```
+brew install bundle
+brew bundle
+```
+
 zsh補完の拡張
 ```zsh
 brew install zsh-cpmpletions

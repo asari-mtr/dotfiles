@@ -1,5 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 DOT_FILES=(.zsh .zshrc .zprofile .zshenv .vimrc .lesskey .less .tmux.conf .tigrc .pythonrc .inputrc .irbrc .ctags .gitconfig)
+
+case ${OSTYPE} in
+  darwin*)
+    DOT_FILES=(Brewfile "${DOT_FILES[@]}")
+    ;;
+esac
 
 for file in ${DOT_FILES[@]}
 do
