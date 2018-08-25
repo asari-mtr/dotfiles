@@ -9,6 +9,9 @@ if [[ -z $ZSHENV_LOAD ]] {
   export TZ=Asia/Tokyo
   export LANG=ja_JP.UTF-8
 
+  # for ptyhon
+  export LC_ALL='ja_JP.UTF-8'
+
   # node
   export NODE_PATH=/usr/local/lib/node_modules
 

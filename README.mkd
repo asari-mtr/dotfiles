@@ -28,9 +28,10 @@ compinit
 chmod go-w /usr/local/share
 ```
 
-Rictyのインストール
-
-- [プログラミング用フォント Ricty](http://www.rs.tus.ac.jp/yyusa/ricty.html)
+powerline
+```
+pip install powerline-stautus
+```
 
 sshの設定
 ``` zsh
