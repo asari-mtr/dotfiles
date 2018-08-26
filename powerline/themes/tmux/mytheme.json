@@ -18,6 +18,10 @@
 				"priority": 50
 			},
 			{
+				"function": "powerline.segments.common.bat.battery",
+				"priority": 50
+			},
+			{
 				"function": "powerline.segments.common.wthr.weather",
         "args": {
           "location_query": "tokyo, japan"
