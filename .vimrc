@@ -40,8 +40,10 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+
 " 利用中のプラグインをPlugin
-Plugin 'powerline/powerline'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Markdown-syntax'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
