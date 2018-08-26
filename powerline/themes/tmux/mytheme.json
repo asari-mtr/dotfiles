@@ -1,0 +1,39 @@
+{
+  "spaces": 1,
+	"segments": {
+		"left": [
+			{
+				"function": "powerline.segments.common.vcs.branch",
+        "args": {
+          "status_colors": "true"
+        }
+			}
+    ],
+		"right": [
+			{
+				"function": "powerline.segments.common.sys.uptime"
+			},
+			{
+				"function": "powerline.segments.common.sys.system_load",
+				"priority": 50
+			},
+			{
+				"function": "powerline.segments.common.wthr.weather",
+        "args": {
+          "location_query": "tokyo, japan"
+        }
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"name": "time",
+				"args": {
+					"format": "%Y/%m/%d %H:%M",
+					"istime": true
+				}
+			},
+			{
+				"function": "powerline.segments.common.net.hostname"
+			}
+		]
+	}
+}
