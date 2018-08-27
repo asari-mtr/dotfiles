@@ -26,6 +26,8 @@ set mouse=a
 set ttymouse=xterm2
 set clipboard+=unnamed
 
+let mapleader = "\\"
+
 colorscheme desert
 
 filetype off
