@@ -2,7 +2,7 @@
 #TODO select actions should be separated as independent builtin-commands
 
 #set main-view = id date author commit-title:graph=yes,refs=yes
-set main-view = id:width=6 date:relative-compact author:abbreviated commit-title:graph=yes,refs=yes
+# set main-view = id:width=6 date:relative-compact author:abbreviated commit-title:graph=yes,refs=yes
 
 bind generic g move-first-line
 bind generic G move-last-line
@@ -111,6 +111,11 @@ color palette-11		default	default bold
 color palette-12		white	default bold
 color palette-13		red	default bold
 color graph-commit		cyan	default
+
+# diff
+set diff-highlight = true
+color diff-header default color8
+color diff-chunk  black color7
 
 # set
 set line-graphics = utf-8
