@@ -293,6 +293,21 @@ let g:rainbow_conf = {
 " rust
 let g:rustfmt_autosave = 1
 
+" toggle_window
+let g:toggle_window_size = 0
+function! ToggleWindowSize()
+  NERDTreeToggle()
+  if g:toggle_window_size == 1
+    exec "normal \<C-w>="
+    let g:toggle_window_size = 0
+  else
+    :resize
+    :vertical resize
+    let g:toggle_window_size = 1
+  endif
+endfunction
+nnoremap <C-w>z :call ToggleWindowSize()<CR>
+
 " Called once only when the multiple selection is canceled (default <Esc>)
 function! Multiple_cursors_after()
   if exists(':NeoCompleteUnlock')==2
