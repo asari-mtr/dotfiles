@@ -399,7 +399,7 @@ color main-local-tag		magenta	default
 color main-remote		yellow	default
 color main-replace		blue	default
 color main-tracked		yellow	default	bold
-color main-ref			blue	default
+color main-ref			magenta default
 color main-head			blue	default	bold
 color stat-none			default	default
 color stat-staged		magenta	default
