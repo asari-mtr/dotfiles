@@ -18,8 +18,6 @@ brew "autoconf"
 brew "automake"
 # Command-line automation tool
 brew "bitrise"
-# Brewfile manager for Homebrew.
-brew "brew-file"
 # GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
 # Portable Foreign Function Interface library
