@@ -355,7 +355,7 @@ color "rename to "		yellow	default
 color "similarity "		yellow	default
 color "dissimilarity "		yellow	default
 color "diff-tree "		cyan	default
-color "Author: "		blue	default
+color "Author: "		cyan default
 color "Commit: "		magenta	default
 color "Tagger: "		magenta	default
 color "Merge: "			cyan	default
@@ -381,16 +381,16 @@ color cursor			white	green	bold
 color status			green	default
 color delimiter			magenta	default
 color date			cyan	default
-color mode			blue	default
+color mode			magenta default
 color id			magenta	default
 color overflow			red	default
 color header			yellow	default
-color section			blue	default
+color section			cyan default
 color directory			yellow	default
 color file			default	default
 color grep.file			cyan	default
 color file-size			default	default
-color line-number		blue	default
+color line-number		yellow default
 color title-blur		white	blue
 color title-focus		white	blue	bold
 color main-commit		default	default
