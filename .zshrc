@@ -163,6 +163,8 @@ bindkey -s "]vv" "!vi\n"
 bindkey -s "]bb" "bundle install\n"
 bindkey -s "]sz" "source ~/.zshrc\n"
 
+bindkey -s "dc" "docker-compose"
+
 bindkey " gg" "show_git_status_or_ls"
 
 ## Command history configuration
