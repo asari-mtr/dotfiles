@@ -4,6 +4,11 @@ zshに変更
 which zsh | sudo tee -a /etc/shells
 ```
 
+To install Vim with homebrew
+```
+brew install vim --with-luajit
+```
+
 vundle.git をインストール
 ```zsh
 mkdir ~/.vim
