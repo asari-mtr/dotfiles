@@ -25,6 +25,7 @@ set t_vb=
 set mouse=a
 set ttymouse=xterm2
 set clipboard+=unnamed
+set virtualedit=all
 
 let mapleader = "\\"
 
