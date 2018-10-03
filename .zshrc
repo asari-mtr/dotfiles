@@ -260,6 +260,14 @@ alias -s zsh='zsh'
 alias -s zshrc='vim'
 alias -s vimrc='vim'
 
+alias -g T='| translate -t ja'
+alias -g TJ='| translate -t ja'
+alias -g TE='| translate -s ja -t en'
+alias -g TTJ='| tee >(translate -t ja)'
+alias -g TTE='| tee >(translate -s ja -t en)'
+alias -g TT='TJ TTE'
+alias -g Tt='TE TTJ'
+
 ## terminal configuration
 #
 case "${TERM}" in
@@ -334,6 +342,18 @@ function this_branch_on_master {
 
 # history
 function history-all { history -E 1 }
+
+function zshaddhistory() {
+  emulate -L zsh
+  # ignore howodoi command
+  if [[ $1 = "howdoi "* || $1 = "dasht "* || $1 = "echo "* ]] ; then
+      return 1
+  else
+      print -sr -- "${1%%$'\n'}"
+      fc -p
+  fi
+}
+
 
 # gem
 export EDITOR=vim
