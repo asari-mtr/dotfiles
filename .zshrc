@@ -268,6 +268,8 @@ alias -g TTE='| tee >(translate -s ja -t en)'
 alias -g TT='TJ TTE'
 alias -g Tt='TE TTJ'
 
+alias -g O='| xargs -I{} printf '%s\0' {} | xargs -0 open'
+
 ## terminal configuration
 #
 case "${TERM}" in
