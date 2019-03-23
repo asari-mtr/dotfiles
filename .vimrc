@@ -16,7 +16,7 @@ set smartcase
 set smartindent
 set tags=tags,~/tags/rails2,~/tags/android,./tags
 set title
-set ts=4 sw=4 sts=0
+set ts=2 sw=2 sts=0
 set wrapscan
 set nobackup
 set hidden
@@ -28,6 +28,8 @@ set clipboard+=unnamed
 set virtualedit=all
 
 let mapleader = "\\"
+
+set helplang=ja,en
 
 colorscheme desert
 
@@ -43,10 +45,10 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
-set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+" set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " 利用中のプラグインをPlugin
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Markdown-syntax'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
@@ -58,7 +60,7 @@ Plugin 'Shougo/vimshell'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/neoyank.vim'
 Plugin 'Source-Explorer-srcexpl.vim'
-Plugin 'ZenCoding.vim'
+Plugin 'mattn/emmet-vim'
 Plugin 'changelog'
 Plugin 'log.vim'
 "Plugin 'javaimports.vim'
@@ -69,6 +71,7 @@ Plugin 'kana/vim-fakeclip'
 "Plugin 'fholgado/minibufexpl.vim'
 Plugin 'open-browser.vim'
 Plugin 'rails.vim'
+Plugin 'basyura/unite-rails'
 Plugin 'scala.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -78,6 +81,7 @@ Plugin 'thinca/vim-quickrun'
 Plugin 'thinca/vim-ref'
 Plugin 'yuku-t/vim-ref-ri'
 Plugin 'tsukkee/unite-tag'
+Plugin 'Shougo/neoinclude.vim'
 "Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-coffee-script'
@@ -121,6 +125,8 @@ Plugin 'tpope/vim-endwise'
 
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
+
+Plugin 'vim-jp/vimdoc-ja'
 
 """ Vundle 設定終了
 call vundle#end()
@@ -194,7 +200,7 @@ augroup END
 " hi CursorLine gui=underline cterm=underline
 " highlight CursorLine ctermbg=red guibg=red
 
-" autocmd BufWritePre * :%s/\s+$//ge
+autocmd BufWritePre * :%s/\s+$//ge
 " autocmd BufWritePre * :%s/\t/  /ge
 
 " RSpec
@@ -259,6 +265,8 @@ nmap S <Plug>(easymotion-b)
 noremap j gj
 noremap k gk
 
+let g:unite_source_rec_async_command = 'ack -f --nofilter'
+
 " unite tag用
 autocmd BufEnter *
             \  if empty(&buftype)
@@ -274,6 +282,15 @@ autocmd BufWritePre *.rb :FixWhitespace
 
 " neocompleteを有効
 let g:neocomplete#enable_at_startup = 1
+
+" neosnippet
+imap <C-k>  <Plug>(neosnippet_expand_or_jump)
+smap <C-k>  <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>  <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+ \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+let g:neosnippet#enable_snipmate_compatibility=1
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets/'
 
 " prevent conflict between neocomplete and vim-multiple-cursors
@@ -315,3 +332,9 @@ function! Multiple_cursors_after()
     exe 'NeoCompleteUnlock'
   endif
 endfunction
+
+" alpaca_tags
+let g:alpaca_tags#config = {
+      \ '_' : '-R --sort=yes --languages=-js,html,css',
+      \ 'ruby': '--languages=+Ruby',
+      \ }

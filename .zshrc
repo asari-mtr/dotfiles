@@ -79,6 +79,17 @@ function rprompt-battery {
   }
 }
 
+function memorize {
+  if [[ ! -e "memorize" ]] {
+    return
+  }
+  local size
+  size=$(wc -l memorize | awk '{print $1}')
+  size=$(($RANDOM % $size + 1))
+  result=$(sed -n ${size}p memorize)
+  echo $result
+}
+
 function rprompt-git-current-branch {
   local name st color gitdir action
   if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
@@ -185,7 +196,7 @@ setopt share_history        # share command history data
 
 ## Completion configuration
 #
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh-completions ~/.zsh/completion $fpath)
 autoload -U compinit
 compinit
 typeset -U fpath
@@ -260,6 +271,12 @@ alias -s zsh='zsh'
 alias -s zshrc='vim'
 alias -s vimrc='vim'
 
+alias tj='translate -s en -t ja'
+alias te='translate -s ja -t en'
+
+alias h='function hdi() { howdoi $* -c }; hdi'
+alias ha='function hdia() { howdoi $* -c --all }; hdia'
+
 alias -g T='| translate -t ja'
 alias -g TJ='| translate -t ja'
 alias -g TE='| translate -s ja -t en'
@@ -267,6 +284,7 @@ alias -g TTJ='| tee >(translate -t ja)'
 alias -g TTE='| tee >(translate -s ja -t en)'
 alias -g TT='TJ TTE'
 alias -g Tt='TE TTJ'
+alias -g S='| tee >(say)'
 
 ## terminal configuration
 #
@@ -343,16 +361,16 @@ function this_branch_on_master {
 # history
 function history-all { history -E 1 }
 
-function zshaddhistory() {
-  emulate -L zsh
-  # ignore howodoi command
-  if [[ $1 = "howdoi "* || $1 = "dasht "* || $1 = "echo "* ]] ; then
-      return 1
-  else
-      print -sr -- "${1%%$'\n'}"
-      fc -p
-  fi
-}
+# function zshaddhistory() {
+#   emulate -L zsh
+#   # ignore howodoi command
+#   if [[ $1 = "howdoi "* || $1 = "dasht "* || $1 = "echo "* ]] ; then
+#       return 1
+#   else
+#       print -sr -- "${1%%$'\n'}"
+#       fc -p
+#   fi
+# }
 
 
 # gem
@@ -372,3 +390,6 @@ freebsd*)
     [ -f ~/dotfiles/.zshrc.bsd ] && source ~/dotfiles/.zshrc.bsd
     ;;
 esac
+
+# powerline
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
