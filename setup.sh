@@ -17,7 +17,9 @@ do
   fi
 done
 
-mkdir -p ~/.config
+mkdir -p ~/.config/nvim
+
+ln -s $HOME/dotfiles/init.nvim $HOME/.config/nvim/init.vim
 
 ln -s $HOME/dotfiles/powerline $HOME/.config/powerline
 
