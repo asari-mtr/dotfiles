@@ -260,6 +260,16 @@ alias gibol='gibo -l | sed "/=/d" | tr "\t", "\n" | sed "/^$/d" | sort | peco | 
 alias gack="git ls-files -oc --exclude-standard | ack -x . | peco"
 alias vimt='vim -c NERDTree'
 
+alias d='docker'
+alias dc='docker-compose'
+alias dnt='docker container'
+alias dcur='docker container ls -f status=running -l -q'
+alias dexec='docker container exec -it $(dcur)'
+alias dimg='docker image'
+alias drun="docker container run --rm -it -v ${PWD}:/tmp/work -w /tmp/work"
+alias drund="docker container run --rm -d"
+alias dstop='docker container stop $(dcur)'
+
 alias -s c='vim'
 alias -s h='vim'
 alias -s coffee='vim'
