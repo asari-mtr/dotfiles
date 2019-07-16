@@ -16,7 +16,7 @@ set smartcase
 set smartindent
 set tags=tags,~/tags/rails2,~/tags/android,./tags
 set title
-set ts=4 sw=4 sts=0
+set ts=2 sw=2 sts=0
 set wrapscan
 set nobackup
 set hidden
@@ -49,6 +49,7 @@ set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Markdown-syntax'
 Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neoinclude.vim'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Shougo/unite.vim'
@@ -67,7 +68,11 @@ Plugin 'kana/vim-fakeclip'
 "Plugin 'mattn/webapi-vim'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'rails.vim'
+
 Plugin 'scrooloose/nerdcommenter'
+let g:NERDDefaultAlign='left'
+let g:NERDSpaceDelims = 2
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
@@ -85,7 +90,7 @@ Plugin 'ruby.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 
-"Plugin 'hiroro/vimdoc_ja'
+Plugin 'vim-jp/vimdoc-ja'
 Plugin 'tpope/vim-obsession'
 
 Plugin 'mileszs/ack.vim'
@@ -185,7 +190,7 @@ augroup END
 " autocmd BufWritePre * :%s/\t/  /ge
 
 " RSpec
-let g:quickrun_config['ruby.rspec'] = {'command' : 'rspec'}
+let g:quickrun_config['ruby.rspec'] = {'command' : 'bundle bin/rspec'}
 augroup MyRSpec
   autocmd!
   autocmd BufWinEnter,BufNewFile *_rspec.rb set filetype=ruby.rspec
@@ -193,29 +198,7 @@ augroup END
 autocmd BufWinEnter,BufNewFile *.coffee set filetype=coffee
 autocmd BufWinEnter,BufNewFile *.less set filetype=less
 
-augroup SetTagsFile
-  autocmd!
-  autocmd FileType scala set tags=~/github/Play20/tags,~/github/scala/tags
-augroup END
-
 autocmd QuickfixCmdPost vimgrep cw
-
-" tagbar
-let g:tagbar_type_scala = {
-    \ 'ctagstype' : 'Scala',
-    \ 'kinds'     : [
-        \ 'p:packages:1',
-        \ 'V:values',
-        \ 'v:variables',
-        \ 'T:types',
-        \ 't:traits',
-        \ 'o:objects',
-        \ 'a:aclasses',
-        \ 'c:classes',
-        \ 'r:cclasses',
-        \ 'm:methods'
-    \ ]
-\ }
 
 """" unite key map
 " インサートモードで開始
@@ -262,6 +245,9 @@ autocmd BufWritePre *.rb :FixWhitespace
 " neocompleteを有効
 let g:neocomplete#enable_at_startup = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets/'
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " prevent conflict between neocomplete and vim-multiple-cursors
 "
@@ -277,9 +263,6 @@ let g:rainbow_active = 1
 let g:rainbow_conf = {
 	\	'ctermfgs': ['blue', 'yellow', 'red', 'green', 'magenta', 'cyan']
 \}
-
-" rust
-let g:rustfmt_autosave = 1
 
 " toggle_window
 let g:toggle_window_size = 0

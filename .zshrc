@@ -204,9 +204,9 @@ setopt share_history        # share command history data
 
 ## Completion configuration
 #
-fpath=(/usr/local/share/zsh-completions $fpath)
-autoload -U compinit
-compinit
+fpath=(/usr/local/share/zsh-completions ~/.zsh/completion $fpath)
+autoload -Uz compinit
+compinit -i
 typeset -U fpath
 # zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 #    /usr/sbin /usr/bin /bin /bin /usr/X11R6/bin /usr/local/git/bin
@@ -238,27 +238,32 @@ alias la="ls -aF"
 alias lf="ls -F"
 alias ll="ls -al"
 
+alias less="less -R"
+
 alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
 
-alias -g L='| less'
-alias -g H='| head'
-alias -g T='| tail'
-alias -g G='| grep'
-alias -g W='| wc'
-alias -g S='| sed'
-alias -g A='| awk'
-alias -g W='| wc'
-alias -g X='| xargs'
-alias -g XG='| xargs grep'
-
-alias tmux="tmux -2"
+# alias -g L='| less'
+# alias -g H='| head'
+# alias -g T='| tail'
+# alias -g G='| grep'
+# alias -g W='| wc'
+# alias -g S='| sed'
+# alias -g A='| awk'
+# alias -g W='| wc'
+# alias -g X='| xargs'
+# alias -g XG='| xargs grep'
+#
+# alias -g R='| xargs grep'
+#
+# alias -g GB='`git branch -a | peco --prompt "GIT BRANCH" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias chbranch="git branch | grep -v '\*.*' | peco | awk '{print $1}' | xargs git checkout"
 alias gibol='gibo -l | sed "/=/d" | tr "\t", "\n" | sed "/^$/d" | sort | peco | xargs gibo'
 alias gack="git ls-files -oc --exclude-standard | ack -x . | peco"
 alias vimt='vim -c NERDTree'
+alias ja="LANG=C grep -n -v '^[[:cntrl:][:print:]]*$'"
 
 alias d='docker'
 alias dc='docker-compose'
@@ -368,16 +373,16 @@ function this_branch_on_master {
 # history
 function history-all { history -E 1 }
 
-function zshaddhistory() {
-  emulate -L zsh
-  # ignore howodoi command
-  if [[ $1 = "howdoi "* || $1 = "dasht "* || $1 = "echo "* ]] ; then
-      return 1
-  else
-      print -sr -- "${1%%$'\n'}"
-      fc -p
-  fi
-}
+# function zshaddhistory() {
+#   emulate -L zsh
+#   # ignore howodoi command
+#   if [[ $1 = "howdoi "* || $1 = "dasht "* || $1 = "echo "* ]] ; then
+#       return 1
+#   else
+#       print -sr -- "${1%%$'\n'}"
+#       fc -p
+#   fi
+# }
 
 
 # gem

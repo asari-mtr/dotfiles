@@ -5,12 +5,17 @@
   oneline = log --oneline --decorate
   onelinenm = log --oneline --no-merges
   onelinep = log --decorate --first-parent --pretty=format:'%C(yellow)%h %C(cyan bold)%ad%Creset%Cgreen%d%Creset %s %C(cyan bold)%an%Creset' --date=format:'%Y/%m/%d %H:%M:%S'
+  st = log --oneline --decorate --graph --all
+  stp = log --oneline --decorate --graph --all --first-parent
+  graph = log --decorate --oneline --graph
   master = checkout master
+  pp = checkout preproduction
   co = checkout
   cb = checkout -b
   pushr = push origin HEAD --set-upstream
   cm = commit -m
   s = status
+  lp = log --first-parent --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
   l = log --graph --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
   la = log --all --graph --pretty=format:'%C(yellow)%h%Cgreen%d%Creset %s %C(cyan bold)%an, %ar%Creset'
   d = diff
@@ -19,6 +24,7 @@
   ds = diff --stat
   dsm = diff master... --stat
   ap = add -p
+  aa = add .
   ri = rebase -i
   rc = rebase --continue
   ra = rebase --abort
@@ -30,25 +36,24 @@
   remotes = remote -v
   first = !git tag first `git rev-list HEAD | tail -n 1`
   last = 'log -1'
-  fix = commit --fixup
+  fix = !git add . && git commit --fixup HEAD
   squash = rebase -i --autosquash
   ic = !git init && git add . && git commit -m 'init' && git oneline
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+  diff-master = diff --name-only --diff-filter=AM master
+  dm = diff --name-only --diff-filter=AM master
+  dp = diff --name-only --diff-filter=AM HEAD@\\{1\\}
 [merge]
   tool = vimdiff
 [color]
   ui = auto
 [core]
-  editor = vi
-	excludesfile = /Users/asari/.gitignore_global
+  editor = /usr/local/bin/nvim
 [github]
   user = asari-mtr
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [push]
 	default = simple
 [rebase]
