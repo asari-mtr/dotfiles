@@ -2,6 +2,7 @@ zshに変更
 
 ```
 which zsh | sudo tee -a /etc/shells
+chsh -s /bin/zsh
 ```
 
 To install Vim with homebrew
@@ -9,11 +10,25 @@ To install Vim with homebrew
 brew install vim --with-luajit
 ```
 
-vundle.git をインストール
-```zsh
-mkdir ~/.vim
-cd .vim
-git clone https://github.com/gmarik/vundle.git vundle.git
+dein をインストール
+```
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.config/nvim/dein.vim
+```
+
+```
+brew install zplug
+```
+
+tmux plugin
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+NERD font for nvim
+```
+brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-font
 ```
 
 ```sh
