@@ -8,6 +8,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -47,87 +49,54 @@ export keyadd
 #
 autoload colors
 colors
-case ${UID} in
-0)
-    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
-    PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-    ;;
-*)
-    PROMPT="%{${fg[green]}%}$%{${fg[yellow]}%}$%{${fg[red]}%}$%{${reset_color}%} "
-    PROMPT="%{${fg[green]}%}→ %{${fg[red]}%}%C%{${fg[red]}%}$%{${reset_color}%} "
-    PROMPT2="%{${fg[green]}%}-%{${fg[yellow]}%}-%{${fg[red]}%}>%{${reset_color}%} "
-    SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-    ;;
-esac
 
 #
 # Show branch name in Zsh's right prompt
 #
 
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-
-function rprompt-battery {
-  if [[ ! -n "${REMOTEHOST}${SSH_CONNECTION}" ]] {
-    return
-  }
-
-  if [[ ! ${OSTYPE} =~ "darwin.*" ]] {
-    return
-  }
-
-  local battery is_charging
-  pmset -g ps | grep -w 'charging' >/dev/null 2>&1
-  if [[ $? -eq 0 ]] {
-    is_charging=1
-  } else {
-    is_charging=0
-  }
-
-  battery=`pmset -g ps | grep -o '[0-9]\+%' | tr -d '%'`%%
-  if [[ -n "$battery" ]] {
-    if [[ ${is_charging} -eq 1 ]] {
-      echo "%F{yellow}$battery%f%b"
-    } elif [[ "${battery%%%*}" -ge 30 ]] {
-      echo "%F{green}$battery%f%b"
-    } else {
-      echo "%F{red}$battery%f%b"
-    }
-  }
-}
-
-function rprompt-git-current-branch {
-  local name st color gitdir action
-  if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
-    return
-  fi
-  name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
-  if [[ -z $name ]]; then
-    return
-  fi
-
-  gitdir=`git rev-parse --git-dir 2> /dev/null`
-  action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
-
-  st=`git status 2> /dev/null`
-  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-    color=%F{green}
-  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-    color=%F{yellow}
-  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-    color=%B%F{red}
-  else
-    color=%F{red}
-  fi
-
-  echo "$color$name$action%f%b "
-}
 setopt prompt_subst
 setopt transient_rprompt
 
-RPROMPT='`rprompt-battery` [`rprompt-git-current-branch`%~]'
+# Customize spaceship
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stamps section
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  battery       # Battery level and status
+  exec_time     # Execution time
+  line_sep      # Line break
+  vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+SPACESHIP_RPROMPT_ORDER=(
+  package       # Package version
+  node          # Node.js section
+  ruby          # Ruby section
+  elixir        # Elixir section
+  xcode         # Xcode section
+  swift         # Swift section
+  golang        # Go section
+  php           # PHP section
+  rust          # Rust section
+  haskell       # Haskell Stack section
+  julia         # Julia section
+  docker        # Docker section
+  aws           # Amazon Web Services section
+  venv          # virtualenv section
+  conda         # conda virtualenv section
+  pyenv         # Pyenv section
+  dotnet        # .NET section
+  ember         # Ember.js section
+  kubecontext   # Kubectl context section
+  terraform     # Terraform workspace section
+)
+SPACESHIP_BATTERY_THRESHOLD=20
+SPACESHIP_EXIT_CODE_SHOW=true
 
 # command correct edition before each completion attempt
 #
@@ -144,12 +113,13 @@ setopt nolistbeep
 
 # show git status or ls
 function _show_git_status_or_ls {
-  echo
   if [[ -e ".git" ]] {
     git status -s -b && git stash list && git diff master... --stat && this_branch_on_master
   } else {
     ls -a
   }
+  echo
+  echo
   zle reset-prompt
 }
 zle -N show_git_status_or_ls _show_git_status_or_ls
