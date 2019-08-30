@@ -37,15 +37,21 @@ if dein#load_state('/Users/mitsuteru.asari/.config/nvim/dein.vim')
 	" Manger list of git objects with interface of denite.nvim
   call dein#add('neoclide/denite-git')
 
+  " Terraform
+  call dein#add('hashivim/vim-terraform')
+
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
+  " Typescript syntax files for Vim
+  call dein#add('leafgarland/typescript-vim')
+
   " lean & mean status/tabline for vim that's light as air<Paste>
-	call dein#add('vim-airline/vim-airline')
-	call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
 	" Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline,
   " Powerline, Unite, vim-startify and more
-	call dein#add('ryanoasis/vim-devicons')
+  call dein#add('ryanoasis/vim-devicons')
 
   " Required:
   call dein#end()
@@ -147,6 +153,9 @@ function! ToggleWindowSize()
   endif
 endfunction
 nnoremap <C-w>z :call ToggleWindowSize()<CR>
+
+" Terraform
+let g:terraform_fmt_on_save = 1
 
 " gitgutter
 let g:gitgutter_highlight_lines = 0

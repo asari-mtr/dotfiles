@@ -356,7 +356,7 @@ function history-all { history -E 1 }
 
 
 # gem
-export EDITOR=vim
+export EDITOR=nvim
 
 case "${OSTYPE}" in
 # Mac(unix)
