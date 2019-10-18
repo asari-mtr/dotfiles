@@ -9,6 +9,8 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zaw"
 
+zplug "willghatch/zsh-cdr"
+
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 zplug "kutsan/zsh-system-clipboard"
@@ -70,10 +72,10 @@ SPACESHIP_PROMPT_ORDER=(
   hg            # Mercurial section (hg_branch  + hg_status)
   battery       # Battery level and status
   exec_time     # Execution time
-  line_sep      # Line break
   vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
+  line_sep      # Line break
   char          # Prompt character
 )
 SPACESHIP_RPROMPT_ORDER=(
@@ -331,6 +333,11 @@ setopt pushd_ignore_dups
 # beep
 setopt no_beep
 setopt no_list_beep
+
+# cdr
+autoload -Uz add-zsh-hook
+autoload -Uz chpwd_recent_dirs cdr
+add-zsh-hook chpwd chpwd_recent_dirs
 
 # Completion
 setopt list_packed
