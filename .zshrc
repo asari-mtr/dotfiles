@@ -7,8 +7,13 @@ source $ZPLUG_HOME/init.zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zaw"
+
+zplug "willghatch/zsh-cdr"
 
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
+zplug "kutsan/zsh-system-clipboard"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -67,10 +72,10 @@ SPACESHIP_PROMPT_ORDER=(
   hg            # Mercurial section (hg_branch  + hg_status)
   battery       # Battery level and status
   exec_time     # Execution time
-  line_sep      # Line break
   vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
+  line_sep      # Line break
   char          # Prompt character
 )
 SPACESHIP_RPROMPT_ORDER=(
@@ -97,6 +102,7 @@ SPACESHIP_RPROMPT_ORDER=(
 )
 SPACESHIP_BATTERY_THRESHOLD=20
 SPACESHIP_EXIT_CODE_SHOW=true
+
 
 # command correct edition before each completion attempt
 #
@@ -129,7 +135,7 @@ zle -N show_git_status_or_ls _show_git_status_or_ls
 # emacs like keybind (e.x. Ctrl-a gets to line head and Ctrl-e gets
 #   to end) and something additions
 #
-bindkey -e
+bindkey -v
 bindkey "^[[1~" beginning-of-line # Home gets to line head
 bindkey "^[[4~" end-of-line # End gets to line end
 bindkey "^[[3~" delete-char # Del
@@ -155,6 +161,8 @@ bindkey -s "]sz" "source ~/.zshrc\n"
 bindkey -s "dc" "docker-compose"
 
 bindkey " gg" "show_git_status_or_ls"
+
+bindkey '^h' 'zaw-history'
 
 ## Command history configuration
 #
@@ -325,6 +333,11 @@ setopt pushd_ignore_dups
 # beep
 setopt no_beep
 setopt no_list_beep
+
+# cdr
+autoload -Uz add-zsh-hook
+autoload -Uz chpwd_recent_dirs cdr
+add-zsh-hook chpwd chpwd_recent_dirs
 
 # Completion
 setopt list_packed
