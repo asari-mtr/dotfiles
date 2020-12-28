@@ -3,15 +3,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/mitsuteru.asari/.config/nvim/dein.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/mitsuteru.asari/.config/nvim/dein.vim')
-  call dein#begin('/Users/mitsuteru.asari/.config/nvim/dein.vim')
+if dein#load_state("$HOME/.cache/dein")
+  call dein#begin("$HOME/.cache/dein")
 
   " Let dein manage dein
   " Required:
-  call dein#add('/Users/mitsuteru.asari/.config/nvim/dein.vim/repos/github.com/Shougo/dein.vim')
+  call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Dark powered asynchronous unite all interfaces for Neovim/Vim8
   call dein#add('Shougo/denite.nvim')
