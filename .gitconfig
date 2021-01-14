@@ -9,6 +9,7 @@
   stp = log --oneline --decorate --graph --all --first-parent
   graph = log --decorate --oneline --graph
   master = checkout master
+  main = checkout main
   pp = checkout preproduction
   co = checkout
   cb = checkout -b
