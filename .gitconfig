@@ -10,6 +10,7 @@
   graph = log --decorate --oneline --graph
   master = checkout master
   main = checkout main
+  main = checkout main
   pp = checkout preproduction
   co = checkout
   cb = checkout -b
