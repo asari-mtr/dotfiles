@@ -1,3 +1,5 @@
+let g:dein#install_github_api_token = $GITHUB_API_TOKEN
+
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -56,6 +58,10 @@ if dein#load_state("$HOME/.cache/dein")
   " Required:
   call dein#end()
   call dein#save_state()
+
+  if dein#check_update(v:true)
+    call dein#update()
+  endif
 endif
 
 call dein#add('Shougo/deoplete.nvim')
