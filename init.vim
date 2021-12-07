@@ -17,7 +17,7 @@ if dein#load_state("$HOME/.cache/dein")
   call dein#add('Shougo/denite.nvim')
 
   " A tree explorer plugin for vim
-  call dein#add('scrooloose/nerdtree')
+  call dein#add('preservim/nerdtree')
   " A plugin of NERDTree showing git status
   call dein#add('Xuyuanp/nerdtree-git-plugin')
   " fugitive.vim: A Git wrapper so awesome, it should be illegal
